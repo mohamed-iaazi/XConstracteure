@@ -12,4 +12,10 @@
         </web-resource-collection>
         <auth-constraint></auth-constraint>
     </security-constraint>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>css/*</url-pattern>
+        <url-pattern>img/*</url-pattern>
+        <url-pattern>js/*</url-pattern>
+    </servlet-mapping>
 </web-app>

@@ -22,10 +22,10 @@
                 <ul class="navbar-nav ms-auto me-auto ">
 
                     <li class="nav-item ps-3 pe-3  ">
-                        <a class="nav-link " href="Project.jsp">Project</a>
+                        <a class="nav-link " href="${pageContext.request.contextPath}/">Project</a>
                     </li>
                     <li class="nav-item ps-3 pe-3">
-                        <a class="nav-link " href="ResourceList.jsp">Resources</a>
+                        <a class="nav-link " href="${pageContext.request.contextPath}/Resources">Resources</a>
                     </li>
 
                 </ul>
