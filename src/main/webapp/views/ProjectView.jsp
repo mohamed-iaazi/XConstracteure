@@ -105,7 +105,7 @@
 <!-- Modal -->
 <div class="modal fade" id="AjouterProject" tabindex="-1" aria-labelledby="AjouterProjectModal" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <form method="POST" action="AjouterProject">
+        <form method="POST" action="${pageContext.request.contextPath}/">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="AjouterProjectModal">Ajouter Project</h5>
@@ -152,7 +152,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <input type="submit" class="btn btn-success" value="Add">
+                    <input name="action" value="AjouterProject" type="submit" class="btn btn-success" >
                 </div>
             </div>
         </form>

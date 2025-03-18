@@ -14,7 +14,7 @@ import java.io.IOException;
 public class ResourcesServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        RequestDispatcher dispatcher=req.getRequestDispatcher("/WEB-INF/views/ResourceList.jsp");
+        RequestDispatcher dispatcher=req.getRequestDispatcher("/views/ResourceList.jsp");
         dispatcher.forward(req,resp);
     }
 
