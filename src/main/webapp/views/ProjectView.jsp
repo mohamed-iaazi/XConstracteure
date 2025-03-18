@@ -82,7 +82,7 @@
                     </div>
                     <div class="card-footer ">
                         <button class="btn btn-success  w-100" >
-                            <a class="text-light d-block  w-100 " href="ProjectTask.jsp">View detail</a>
+                            <a class="text-light d-block  w-100 " href="ProjectDetail">View detail</a>
                         </button>
                     </div>
                 </div>
