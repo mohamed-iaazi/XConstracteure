@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,13 +41,14 @@
         <h3 class="text-center mt-4">Our Project</h3>
 
         <div class="row justify-content-center pt-5 gap-1">
+            <c:forEach var="project" items="${projects}">
             <div class=" col-sm-12 col-md-5 col-lg-3 ">
                 <div class="card">
                     <div class="card-header bg-dark text-light text-center">
-                        Hospitale Project
+                       ${project.name}
                     </div>
                     <div class="card-body">
-                        <p class="text-center">description of the project</p>
+                        <p class="text-center">${project.projectDescription}</p>
                     </div>
                     <p class="text-center">Start Date</p>
                     <div class="d-flex justify-content-center">
@@ -91,21 +93,21 @@
                         </button>
                         <button class="btn btn-danger m-1" >
                             <a class="text-light " href="${pageContext.request.contextPath}/" >
-                                <input name="action" value="SupprimerProject?id=${project.id}" type="hidden">
+                                <input name="action" value="SupprimerProject?id=${project.projectId}" type="hidden">
                                 <i class="fas fa-trash"></i>
                             </a>
                         </button>
 
                         <button class="btn btn-info m-1"   >
                             <a class="text-light " href="${pageContext.request.contextPath}/">
-                                <input name="action" value="UpdateProject?id=${project.id}" type="hidden">
+                                <input name="action" value="UpdateProject?id=${project.projectId}" type="hidden">
                                 <i class="fas fa-edit"></i>
                             </a>
                         </button>
                     </div>
                 </div>
             </div>
-
+            </c:forEach>
             <div class="col-sm-12 col-md-5 col-lg-3">
 
             </div>

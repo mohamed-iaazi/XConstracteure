@@ -3,10 +3,8 @@ package com.medo.xbuilder.Dao.Project;
 import com.medo.xbuilder.Model.Project;
 import com.medo.xbuilder.Util.DBConnection;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProjectDaoImp implements ProjectDao {
@@ -42,7 +40,25 @@ public class ProjectDaoImp implements ProjectDao {
 
     @Override
     public List<Project> DisplayALLProject() {
-        return List.of();
+        List<Project> Projects = new ArrayList<>();
+        String SELECT_ALL_PROJECT = "select * from project";
+        try {
+            Connection connection = DBConnection.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_PROJECT);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                String name = resultSet.getString("name");
+                String description = resultSet.getString("description");
+                Date startDate = resultSet.getDate("startdate");
+                Date endDate = resultSet.getDate("enddate");
+                int budget = resultSet.getInt("budget");
+                Project project = new Project(name, description, startDate, endDate, budget);
+                Projects.add(project);
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return Projects;
     }
 
     @Override

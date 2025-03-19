@@ -13,14 +13,21 @@ import java.sql.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.List;
 
 
 @WebServlet("/")
 public class ProjectServlet  extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        ProjectServiceImp service = new ProjectServiceImp();
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/ProjectView.jsp");
+        List<Project> projects =service.DisplayALLProject();
+        req.setAttribute("projects", projects);
         dispatcher.forward(req, resp);
+        dispatcher.forward(req, resp);
+
+
     }
 
     @Override
@@ -33,11 +40,16 @@ public class ProjectServlet  extends HttpServlet {
             AjouterProject(req, resp);
             break;
         case "SupprimerProject":
-            AjouterProject(req, resp);
+            SupprimerProject(req, resp);
             break;
 
-    }
+        case "UpdateProject":
+            UpdateProject(req, resp);
+            break;
+            default:
+                break;
 
+    }
 
     }
 
@@ -52,4 +64,12 @@ public class ProjectServlet  extends HttpServlet {
         doGet(req, resp);
 
     }
+
+    private void UpdateProject(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    }
+
+    private void SupprimerProject(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    }
+
+
 }
