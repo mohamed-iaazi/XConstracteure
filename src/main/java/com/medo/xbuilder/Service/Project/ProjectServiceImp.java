@@ -12,10 +12,7 @@ public class ProjectServiceImp implements ProjectService{
         return dao.AddNewProject(Project);
     }
 
-    @Override
-    public boolean UpdateProject(int id, Project Project) {
-        return dao.UpdateProject(id, Project);
-    }
+
 
     @Override
     public boolean DeleteProject(int id) {
@@ -30,5 +27,11 @@ public class ProjectServiceImp implements ProjectService{
     @Override
     public Project DisplayProjectById(int id) {
         return dao.DisplayProjectById(id);
+    }
+
+    @Override
+    public boolean UpdateProject(Project project) {
+        return dao.UpdateProject(project);
+
     }
 }

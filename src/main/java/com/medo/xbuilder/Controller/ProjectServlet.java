@@ -25,7 +25,9 @@ public class ProjectServlet  extends HttpServlet {
         List<Project> projects =service.DisplayALLProject();
         req.setAttribute("projects", projects);
         dispatcher.forward(req, resp);
-        dispatcher.forward(req, resp);
+
+
+
 
 
     }
@@ -34,24 +36,22 @@ public class ProjectServlet  extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = req.getParameter("action");
 
-
-    switch (action) {
-        case "AjouterProject":
-            AjouterProject(req, resp);
-            break;
-        case "SupprimerProject":
-            SupprimerProject(req, resp);
-            break;
-
-        case "UpdateProject":
-            UpdateProject(req, resp);
-            break;
-            default:
+        switch (action) {
+            case "AjouterProject":
+                AjouterProject(req, resp);
                 break;
-
+            case "SupprimerProject":
+                SupprimerProject(req, resp);
+                break;
+            case "UpdateProject":
+                UpdateProject(req, resp);
+                break;
+            default:
+                resp.sendRedirect(req.getContextPath() + "/"); // default redirect to home if no action matches
+                break;
+        }
     }
 
-    }
 
     private  void AjouterProject(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String name = req.getParameter("name");
@@ -61,14 +61,29 @@ public class ProjectServlet  extends HttpServlet {
         int budget = Integer.parseInt(req.getParameter("budget"));
         ProjectServiceImp service = new ProjectServiceImp();
         service.AddNewProject(new Project(name, description, startDate, endDate, budget));
-        doGet(req, resp);
-
+        resp.sendRedirect(req.getContextPath() + "/");
     }
 
     private void UpdateProject(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        int id = Integer.parseInt((String) req.getParameter("projectId"));
+        String name = req.getParameter("name");
+        String description = req.getParameter("description");
+        Date startDate = Date.valueOf(LocalDate.parse(req.getParameter("startdate")));
+        Date endDate = Date.valueOf(LocalDate.parse(req.getParameter("enddate")));
+        int budget = Integer.parseInt(req.getParameter("budget"));
+        ProjectServiceImp service = new ProjectServiceImp();
+        Project project=new Project(id, name, description, startDate, endDate, budget);
+        service.UpdateProject(project);
+        resp.sendRedirect(req.getContextPath() + "/");
     }
 
     private void SupprimerProject(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int id = Integer.parseInt(req.getParameter("id"));
+        System.out.println(id);
+        ProjectServiceImp service = new ProjectServiceImp();
+        System.out.println( service.DeleteProject(id)); // Assuming this method works as expected
+        resp.sendRedirect(req.getContextPath() + "/"); // Redirect to the homepage after deletion
     }
 
 

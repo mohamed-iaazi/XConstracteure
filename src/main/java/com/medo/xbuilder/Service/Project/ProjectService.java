@@ -8,10 +8,8 @@ public interface ProjectService {
 
 
     boolean AddNewProject(Project Project);
-    boolean UpdateProject(int id, Project Project);
     boolean DeleteProject(int id);
     List<Project> DisplayALLProject();
     Project DisplayProjectById(int id);
-
-
+    boolean UpdateProject(Project project);
 }

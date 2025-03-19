@@ -1,5 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="fmt" uri="jakarta.tags.fmt"  %>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,20 +51,21 @@
                        ${project.name}
                     </div>
                     <div class="card-body">
-                        <p class="text-center">${project.projectDescription}</p>
+                        <p class="text-center">
+                                ${project.projectDescription}</p>
                     </div>
                     <p class="text-center">Start Date</p>
                     <div class="d-flex justify-content-center">
                         <div class="date-card bg-secondary text-white p-2 m-1 text-center">
-                            <div class="date-number">02</div>
+                            <div class="date-number"><fmt:formatDate type="date" pattern="dd" value="${project.startDate}"/> </div>
                             <div class="date-label">Day</div>
                         </div>
                         <div class="date-card bg-secondary text-white p-2 m-1 text-center">
-                            <div class="date-number">02</div>
+                            <div class="date-number"><fmt:formatDate type="date" pattern="MM" value="${project.startDate}"/></div>
                             <div class="date-label">Month</div>
                         </div>
                         <div class="date-card bg-secondary text-white p-2 m-1 text-center">
-                            <div class="date-number">2025</div>
+                            <div class="date-number"><fmt:formatDate type="date" pattern="yyyy" value="${project.startDate}"/></div>
                             <div class="date-label">Year</div>
                         </div>
                     </div>
@@ -70,15 +74,15 @@
                     <p class="text-center">End Date</p>
                     <div class="d-flex justify-content-center">
                         <div class="date-card bg-secondary-subtle text-secondary p-2 m-1 text-center">
-                            <div class="date-number">02</div>
+                            <div class="date-number"><fmt:formatDate type="date" pattern="dd" value="${project.endDate}"/></div>
                             <div class="date-label">Day</div>
                         </div>
                         <div class="date-card bg-secondary-subtle text-secondary p-2 m-1 text-center">
-                            <div class="date-number">02</div>
+                            <div class="date-number"><fmt:formatDate type="date" pattern="MM" value="${project.endDate}"/></div>
                             <div class="date-label">Month</div>
                         </div>
                         <div class="date-card bg-secondary-subtle text-secondary p-2 m-1 text-center">
-                            <div class="date-number">2025</div>
+                            <div class="date-number"><fmt:formatDate type="date" pattern="yyyy" value="${project.endDate}"/></div>
                             <div class="date-label">Year</div>
                         </div>
 
@@ -91,19 +95,30 @@
                                 <i class="fas fa-eye"></i>
                             </a>
                         </button>
-                        <button class="btn btn-danger m-1" >
-                            <a class="text-light " href="${pageContext.request.contextPath}/" >
-                                <input name="action" value="SupprimerProject?id=${project.projectId}" type="hidden">
+                        <!-- Delete Button -->
+                        <form method="post" action="${pageContext.request.contextPath}/">
+                            <input type="hidden" name="action" value="SupprimerProject">
+                            <input type="hidden" name="id" value="${project.projectId}">
+                            <button type="submit" class="btn btn-danger m-1">
                                 <i class="fas fa-trash"></i>
-                            </a>
-                        </button>
+                            </button>
+                        </form>
 
-                        <button class="btn btn-info m-1"   >
-                            <a class="text-light " href="${pageContext.request.contextPath}/">
-                                <input name="action" value="UpdateProject?id=${project.projectId}" type="hidden">
+
+                        <!-- Update Button -->
+                        <button type="button" class="btn btn-info m-1" data-bs-toggle="modal" data-bs-target="#UpdateProject"
+                                data-id="${project.projectId}"
+                                data-name="${project.name}"
+                                data-description="${project.projectDescription}"
+                                data-start-date="${project.startDate}"
+                                data-end-date="${project.endDate}"
+                                data-budget="${project.budget}">
+                            <a class="text-light">
                                 <i class="fas fa-edit"></i>
                             </a>
                         </button>
+
+
                     </div>
                 </div>
             </div>
@@ -186,7 +201,9 @@
             </div>
         </form>
     </div>
-</div><!-- Floating Add Button -->
+</div>
+<%@include file="./../componant/UpdateFrom.jsp"%>
+<!-- Floating Add Button -->
 <button type="button" class="btn btn-success btn-lg rounded-circle position-fixed bottom-0 end-0 m-4 shadow-lg" data-bs-toggle="modal" data-bs-target="#AjouterProject">
     <i class="fas fa-plus"></i>
 </button>

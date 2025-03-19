@@ -28,6 +28,10 @@ public class Project {
         this.budget = budget;
     }
 
+    public Project() {
+
+    }
+
     public int getProjectId() {
         return projectId;
     }
