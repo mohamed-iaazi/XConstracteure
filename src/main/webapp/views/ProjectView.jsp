@@ -79,10 +79,28 @@
                             <div class="date-number">2025</div>
                             <div class="date-label">Year</div>
                         </div>
+
                     </div>
-                    <div class="card-footer ">
-                        <button class="btn btn-success  w-100" >
-                            <a class="text-light d-block  w-100 " href="ProjectDetail">View detail</a>
+                    <p class="text-center text-dark">budget : ${project.budget}</p>
+
+                    <div class="card-footer justify-content-center d-flex ">
+                        <button class="btn btn-success m-1" >
+                            <a class="text-light " href="ProjectDetail">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                        </button>
+                        <button class="btn btn-danger m-1" >
+                            <a class="text-light " href="${pageContext.request.contextPath}/" >
+                                <input name="action" value="SupprimerProject?id=${project.id}" type="hidden">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                        </button>
+
+                        <button class="btn btn-info m-1"   >
+                            <a class="text-light " href="${pageContext.request.contextPath}/">
+                                <input name="action" value="UpdateProject?id=${project.id}" type="hidden">
+                                <i class="fas fa-edit"></i>
+                            </a>
                         </button>
                     </div>
                 </div>
@@ -117,7 +135,7 @@
                         <div class="row">
                             <div class="col-sm-12 mb-2">
                                 <div class="form-group">
-                                    <input name="title" class="form-control" type="text" placeholder="Name">
+                                    <input name="name" class="form-control" type="text" placeholder="Name">
                                 </div>
                             </div>
                         </div>
@@ -134,7 +152,7 @@
                             <div class="col-sm-12 mb-2">
                                 <div class="form-group">
                                     <div class="input-group">
-                                        <input name="startDate" class="form-control" type="date" placeholder="startDate">
+                                        <input name="startdate" class="form-control" type="date" placeholder="startDate">
                                     </div>
                                 </div>
                             </div>
@@ -143,8 +161,17 @@
                             <div class="col-sm-12 mb-2">
                                 <div class="form-group">
                                     <div class="input-group">
-                                        <input name="endDate" class="form-control" type="date" placeholder="endDate">
+                                        <input name="enddate" class="form-control" type="date" placeholder="endDate">
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-10 co-lg-8 mb-2 d-block ms-auto me-auto ">
+                            <div class="form-group">
+                                <div class="input-group">
+                                        <input name="budget" class="form-control" type="number" placeholder="budget"></input>
                                 </div>
                             </div>
                         </div>

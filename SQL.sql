@@ -8,8 +8,8 @@ create  table Project(
                          projectId int primary key  auto_increment,
                          name varchar(100) ,
                          description varchar(200),
-                         startdate date ,
-                         enddate date ,
+                         startdate Date ,
+                         enddate Date ,
                          budget int
 
 );
@@ -32,4 +32,3 @@ create  table Resource(
                           fournisseur varchar(100)
 
 );
-)
