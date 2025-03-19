@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@taglib prefix="c" uri="jakarta.tags.core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,17 +50,23 @@
                     <th>Description</th>
                     <th>Start Date</th>
                     <th>End Date</th>
+                    <th>budget</th>
                     <th>Resources</th>
+
                 </tr>
             </thead>
             <tbody>
+
                 <tr>
-                    <td>Build Hospital</td>
-                    <td>Build a new hospital in the city center</td>
-                    <td>01/05/2025</td>
-                    <td>01/05/2026</td>
-                    <td>Manpower, Equipment</td>
+                    <td>${project.name}</td>
+                    <td>${project.projectDescription}</td>
+                    <td>${project.startDate}</td>
+                    <td>${project.endDate}</td>
+                    <td>${project.budget}</td>
+                    <td>Man</td>
+
                 </tr>
+
             </tbody>
         </table>
     </div>
@@ -68,11 +75,11 @@
     <div class="card-mobile">
         <div class="card border-dark-subtle p-3 mb-3">
             <div class="card-body">
-                <h5 class="card-title text-center">Build Hospital</h5>
-                <p class="card-text"><strong>Description:</strong> Build a new hospital in the city center</p>
-                <p class="card-text"><strong>Start Date:</strong> 01/05/2025</p>
-                <p class="card-text"><strong>End Date:</strong> 01/05/2026</p>
-                <p class="card-text"><strong>Resources:</strong> Manpower, Equipment</p>
+                <h5 class="card-title text-center">${project.name}</h5>
+                <p class="card-text"><strong>Description:</strong> ${project.projectDescription}</p>
+                <p class="card-text"><strong>Start Date:</strong> ${project.startDate}</p>
+                <p class="card-text"><strong>End Date:</strong> ${project.endDate}</p>
+                <p class="card-text"><strong>budget:</strong> ${project.budget}</p>
             </div>
         </div>
     </div>
@@ -172,11 +179,7 @@
             new bootstrap.Select(select);
         });
 
-        document.getElementById("AjouterTask").addEventListener("shown.bs.modal", function () {
-            selectElements.forEach(function (select) {
-                select.dispatchEvent(new Event("change"));
-            });
-        });
+
     });
 </script>
 

@@ -54,7 +54,7 @@
                         <p class="text-center">
                                 ${project.projectDescription}</p>
                     </div>
-                    <p class="text-center">Start Date</p>
+                    <p class="text-center fw-bold">Start Date </p>
                     <div class="d-flex justify-content-center">
                         <div class="date-card bg-secondary text-white p-2 m-1 text-center">
                             <div class="date-number"><fmt:formatDate type="date" pattern="dd" value="${project.startDate}"/> </div>
@@ -71,7 +71,7 @@
                     </div>
 
 
-                    <p class="text-center">End Date</p>
+                    <p class="text-center fw-bold mt-2">End Date</p>
                     <div class="d-flex justify-content-center">
                         <div class="date-card bg-secondary-subtle text-secondary p-2 m-1 text-center">
                             <div class="date-number"><fmt:formatDate type="date" pattern="dd" value="${project.endDate}"/></div>
@@ -87,14 +87,19 @@
                         </div>
 
                     </div>
-                    <p class="text-center text-dark">budget : ${project.budget}</p>
+
+                        <p class="text-center text-secondary-subtle mt-1"> <span class="fw-bold text-dark"> budget </span> ${project.budget} DH </p>
 
                     <div class="card-footer justify-content-center d-flex ">
-                        <button class="btn btn-success m-1" >
-                            <a class="text-light " href="ProjectDetail">
+
+
+                        <form method="Get" action="${pageContext.request.contextPath}/ProjectDetail">
+                            <input type="hidden" name="id" value="${project.projectId}">
+                            <button type="submit" class="btn btn-success m-1 text-light ">
                                 <i class="fas fa-eye"></i>
-                            </a>
-                        </button>
+                            </button>
+                        </form>
+
                         <!-- Delete Button -->
                         <form method="post" action="${pageContext.request.contextPath}/">
                             <input type="hidden" name="action" value="SupprimerProject">
