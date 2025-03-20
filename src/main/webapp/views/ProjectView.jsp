@@ -104,7 +104,7 @@
                         <form method="post" action="${pageContext.request.contextPath}/">
                             <input type="hidden" name="action" value="SupprimerProject">
                             <input type="hidden" name="id" value="${project.projectId}">
-                            <button type="submit" class="btn btn-danger m-1" onclick="return confirm('Are you sure you want to delete this task?');">
+                            <button type="submit" class="btn btn-danger m-1" >
                                 <i class="fas fa-trash"></i>
                             </button>
                         </form>

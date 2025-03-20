@@ -16,10 +16,11 @@ create  table Project(
 
 create  table Tache(
                        TacheId int primary key  auto_increment,
-                       tasktitle varchar(100) ,
+                       taskdesc varchar(100) ,
                        startdate date ,
                        enddate date ,
                        projectId int ,
+                       foreign key (projectId) references Project(projectId)
 
 
 );
