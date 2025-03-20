@@ -20,7 +20,7 @@ create  table Tache(
                        startdate date ,
                        enddate date ,
                        projectId int ,
-                       foreign key (projectId) references Project(projectId)
+                       foreign key (projectId) references Project(projectId) on delete cascade
 
 
 );
