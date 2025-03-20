@@ -41,10 +41,21 @@ public class ProjectDetailServlet extends HttpServlet {
             case "AjouterTask":
                 AjouterTask(req,resp);
                   break;
+            case "SupprimerTask":
+                      SupprimerTask(req,resp);
+                      break;
 
         }
 
 
+    }
+
+    private void SupprimerTask(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int taskId = Integer.parseInt(req.getParameter("id"));
+        TacheServiceImp service = new TacheServiceImp();
+        service.DeleteTask(taskId);
+        int projectId = Integer.parseInt(req.getParameter("project"));
+        resp.sendRedirect(req.getContextPath() + "/ProjectDetail?id=" + projectId);
     }
 
     private void AjouterTask(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

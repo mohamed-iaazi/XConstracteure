@@ -65,9 +65,9 @@
                     <td>null</td>
                     <!-- Delete Button -->
                    <td >
-                       <form method="post" action="${pageContext.request.contextPath}/">
-                        <input type="hidden" name="action" value="SupprimerProject">
-                        <input type="hidden" name="id" value="${project}">
+                       <form method="post" action="${pageContext.request.contextPath}/ProjectDetail">
+                        <input type="hidden" name="action" value="SupprimerTask">
+                        <input type="hidden" name="id" value="${tache.idTache}">
                         <button type="submit" class="btn btn-danger ">
                             <i class="fas fa-trash"></i>
                         </button>
@@ -105,9 +105,10 @@
                 <p class="card-text"><strong>End Date:</strong> ${tache.enddateTache}</p>
                 <p class="card-text"><strong>Resources:</strong> null</p>
                 <!-- Delete Button -->
-                <form method="post" action="${pageContext.request.contextPath}/">
-                    <input type="hidden" name="action" value="SupprimerProject">
-                    <input type="hidden" name="id" value="${project}">
+                <form method="post" action="${pageContext.request.contextPath}/ProjectDetail">
+                    <input type="hidden" name="action" value="SupprimerTask">
+                    <input type="hidden" name="id" value="${tache.idTache}">
+                    <input type="hidden" name="projectId" value="${project}">
                     <button type="submit" class="btn btn-danger d-block ms-auto me-auto">
                         <i class="fas fa-trash"></i>
                     </button>
@@ -132,7 +133,7 @@
     <div class="modal-dialog" role="document">
         <form method="POST" action="${pageContext.request.contextPath}/ProjectDetail">
             <input name="action" type="hidden" value="AjouterTask">
-            <input type="hidden" name="id" value="${project}">
+            <input type="hidden" name="projectId" value="${project}">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="AjouterTaskModal">Ajouter Task</h5>

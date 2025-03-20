@@ -14,7 +14,7 @@ public class TacheServiceImp implements TacheService {
 
     @Override
     public boolean DeleteTask(int id) {
-        return false;
+        return tacheDao.DeleteTask(id);
     }
 
     @Override

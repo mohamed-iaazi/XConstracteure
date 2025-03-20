@@ -31,8 +31,18 @@ public class TacheDao implements TacheService {
 
     @Override
     public boolean DeleteTask(int id) {
-        return false;
-    }
+        String DELETE_TACHE = "delete  from tache where TacheId=?";
+        try {
+            Connection connection = DBConnection.getConnection();
+            PreparedStatement preparedStatement= connection.prepareStatement(DELETE_TACHE);
+            preparedStatement.setInt(1,id);
+            preparedStatement.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+
+        }    }
 
     @Override
     public boolean UpdateTask(Tache tache) {
