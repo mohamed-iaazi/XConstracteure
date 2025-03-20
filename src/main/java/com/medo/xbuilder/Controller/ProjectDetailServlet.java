@@ -29,6 +29,7 @@ public class ProjectDetailServlet extends HttpServlet {
         for (Tache tache : taches) {
             System.out.println(tache);
         }
+
         req.setAttribute("project", id);
         req.setAttribute("taches", taches);
         dispatcher.forward(req, resp);
@@ -54,8 +55,9 @@ public class ProjectDetailServlet extends HttpServlet {
         int taskId = Integer.parseInt(req.getParameter("id"));
         TacheServiceImp service = new TacheServiceImp();
         service.DeleteTask(taskId);
-        int projectId = Integer.parseInt(req.getParameter("project"));
+        int projectId = Integer.parseInt(req.getParameter("projectId"));
         resp.sendRedirect(req.getContextPath() + "/ProjectDetail?id=" + projectId);
+
     }
 
     private void AjouterTask(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -64,12 +66,11 @@ public class ProjectDetailServlet extends HttpServlet {
         Date startDate = Date.valueOf(req.getParameter("startDate"));
         Date endDate = Date.valueOf(req.getParameter("endDate"));
 
-        int ProjectId = Integer.parseInt(req.getParameter("id"));
+        int projectId = Integer.parseInt(req.getParameter("projectId")); // Make sure the projectId is correctly retrieved
 
-        Tache tache = new Tache( description, startDate, endDate, ProjectId);
+        Tache tache = new Tache(description, startDate, endDate, projectId);
         service.AddTask(tache);
-        doGet(req,resp);
-
+        resp.sendRedirect(req.getContextPath() + "/ProjectDetail?id=" + projectId);
 
 
     }

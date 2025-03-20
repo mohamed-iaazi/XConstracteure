@@ -68,7 +68,9 @@
                        <form method="post" action="${pageContext.request.contextPath}/ProjectDetail">
                         <input type="hidden" name="action" value="SupprimerTask">
                         <input type="hidden" name="id" value="${tache.idTache}">
-                        <button type="submit" class="btn btn-danger ">
+                           <input type="hidden" name="projectId" value="${project}">
+
+                           <button type="submit" class="btn btn-danger ">
                             <i class="fas fa-trash"></i>
                         </button>
                     </form>
@@ -131,56 +133,46 @@
     <!-- Modal -->
 <div class="modal fade" id="AjouterTask" tabindex="-1" aria-labelledby="AjouterTaskModal" aria-hidden="true">
     <div class="modal-dialog" role="document">
+        <!-- Inside the modal -->
         <form method="POST" action="${pageContext.request.contextPath}/ProjectDetail">
             <input name="action" type="hidden" value="AjouterTask">
-            <input type="hidden" name="projectId" value="${project}">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="AjouterTaskModal">Ajouter Task</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="card px-1 py-4">
-                <div class="card-body">
-                    <h6 class="information mt-4 text-secondary mb-3 text-center">Please provide the following information</h6>
+            <input type="hidden" name="projectId" value="${project}"> <!-- Pass projectId from servlet -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="AjouterTaskModal">Ajouter Task</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="card px-1 py-4">
+                    <div class="card-body">
+                        <h6 class="information mt-4 text-secondary mb-3 text-center">Please provide the following information</h6>
 
-                    <div class="row mb-2">
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <textarea name="description" class="form-control" type="text" placeholder="Description"></textarea>
+                        <div class="row mb-2">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <textarea name="description" class="form-control" placeholder="Description"></textarea>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <p class="mt-1 text-secondary mb-1">start Date</p>
 
-                    <div class="row mb-2">
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <input name="startDate" class="form-control" type="date" placeholder="Start Date">
-                                </div>
+                        <p class="mt-1 text-secondary mb-1">Start Date</p>
+                        <div class="row mb-2">
+                            <div class="col-sm-12">
+                                <input name="startDate" class="form-control" type="date" placeholder="Start Date">
                             </div>
                         </div>
-                    </div>
-                    <p class="mt-1 text-secondary mb-1">end Date</p>
 
-                    <div class="row mb-2">
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <input name="endDate" class="form-control" type="date" placeholder="End Date">
-                                </div>
+                        <p class="mt-1 text-secondary mb-1">End Date</p>
+                        <div class="row mb-2">
+                            <div class="col-sm-12">
+                                <input name="endDate" class="form-control" type="date" placeholder="End Date">
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Select with Bootstrap-Select -->
-                    <div class="row mb-2">
-                        <div class="col-sm-12">
-                            <div class="form-group">
+                        <!-- Select with Bootstrap-Select -->
+                        <div class="row mb-2">
+                            <div class="col-sm-12">
                                 <select name="resources" class="selectpicker form-control" multiple data-live-search="true" data-actions-box="true">
-                                    <optgroup label="Resources" data-max-options="2">
+                                    <optgroup label="Resources">
                                         <option>Bala</option>
                                         <option>Man</option>
                                         <option>Cars</option>
@@ -188,16 +180,16 @@
                                 </select>
                             </div>
                         </div>
-                    </div>
 
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <input type="submit" class="btn btn-success" value="Add">
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <input type="submit" class="btn btn-success" value="Add">
-            </div>
-        </div>
         </form>
+
     </div>
 </div>
 
