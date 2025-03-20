@@ -16,6 +16,7 @@ import java.util.List;
 public class ProjectServlet  extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
         ProjectServiceImp service = new ProjectServiceImp();
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/ProjectView.jsp");
         List<Project> projects =service.DisplayALLProject();

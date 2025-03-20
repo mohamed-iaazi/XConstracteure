@@ -15,11 +15,12 @@ create  table Project(
 );
 
 create  table Tache(
-                       TachetId int primary key  auto_increment,
+                       TacheId int primary key  auto_increment,
                        tasktitle varchar(100) ,
                        startdate date ,
                        enddate date ,
-                       projectId int
+                       projectId int ,
+
 
 );
 

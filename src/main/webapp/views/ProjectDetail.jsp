@@ -50,20 +50,40 @@
                     <th>Start Date</th>
                     <th>End Date</th>
                     <th>Resources</th>
-
+                    <th>Action</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
 
-            <c:forEach var="tache" items="taches">
 
+            <c:forEach var="tache" items="${taches}">
                 <tr>
                     <td>${tache.descTache}</td>
-                    <td>${tache.startDate}</td>
-                    <td>${tache.endDate}</td>
-                    <td>${tache.projectId}</td>
+                    <td>${tache.startdateTache}</td>
+                    <td>${tache.enddateTache}</td>
+                    <td>null</td>
+                    <!-- Delete Button -->
+                   <td >
+                       <form method="post" action="${pageContext.request.contextPath}/">
+                        <input type="hidden" name="action" value="SupprimerProject">
+                        <input type="hidden" name="id" value="${project}">
+                        <button type="submit" class="btn btn-danger ">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </form>
+                   </td>
 
 
+                   <td>
+                    <!-- Update Button -->
+                    <button type="button" class="btn btn-info " data-bs-toggle="modal" data-bs-target="#UpdateProject"
+                            data-id="${project}">
+                        <a class="text-light">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                    </button>
+                    </td>
 
                 </tr>
             </c:forEach>
@@ -72,21 +92,42 @@
         </table>
     </div>
 
+
+<c:forEach var="tache" items="${taches}">
+    <div class="ms-5 ps-5 ">
     <!-- Card layout for mobile screens -->
-    <div class="card-mobile">
-        <div class="card border-dark-subtle p-3 mb-3">
+<div class="card-mobile w-100 ">
+    <div class="card border-dark-subtle p-3 mb-3  w-75">
             <div class="card-body">
-                <h5 class="card-title text-center">${project}</h5>
+                <h5 class="card-title text-center mb-1 fw-bold">${project}</h5>
                 <p class="card-text"><strong>Description:</strong> ${tache.descTache}</p>
-                <p class="card-text"><strong>Start Date:</strong> ${tache.startDate}</p>
-                <p class="card-text"><strong>End Date:</strong> ${tache.endDate}</p>
-                <p class="card-text"><strong>Resources:</strong> ${tache.projectId}</p>
+                <p class="card-text"><strong>Start Date:</strong> ${tache.startdateTache}</p>
+                <p class="card-text"><strong>End Date:</strong> ${tache.enddateTache}</p>
+                <p class="card-text"><strong>Resources:</strong> null</p>
+                <!-- Delete Button -->
+                <form method="post" action="${pageContext.request.contextPath}/">
+                    <input type="hidden" name="action" value="SupprimerProject">
+                    <input type="hidden" name="id" value="${project}">
+                    <button type="submit" class="btn btn-danger d-block ms-auto me-auto">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </form>
+                <!-- Update Button -->
+                <button  type="button" class="btn btn-info d-block ms-auto me-auto mt-2" data-bs-toggle="modal" data-bs-target="#UpdateProject"
+                        data-id="${project}">
+                    <a class="text-light">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                </button>
             </div>
         </div>
     </div>
 </div>
+    </c:forEach>
+</div>
 
-<!-- Modal -->
+
+    <!-- Modal -->
 <div class="modal fade" id="AjouterTask" tabindex="-1" aria-labelledby="AjouterTaskModal" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <form method="POST" action="${pageContext.request.contextPath}/ProjectDetail">

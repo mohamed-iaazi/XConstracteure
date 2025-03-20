@@ -95,7 +95,7 @@
 
                         <form method="Get" action="${pageContext.request.contextPath}/ProjectDetail">
                             <input type="hidden" name="id" value="${project.projectId}">
-                            <button type="submit" class="btn btn-success m-1 text-light ">
+                            <button  type="submit" class="btn btn-success m-1 text-light ">
                                 <i class="fas fa-eye"></i>
                             </button>
                         </form>

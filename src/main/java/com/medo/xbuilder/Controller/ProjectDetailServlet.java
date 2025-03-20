@@ -26,6 +26,9 @@ public class ProjectDetailServlet extends HttpServlet {
         RequestDispatcher  dispatcher = getServletContext().getRequestDispatcher("/views/ProjectDetail.jsp");
         int id = Integer.parseInt(req.getParameter("id"));
         List<Tache> taches =serviceImp.GetAllTasks(id);
+        for (Tache tache : taches) {
+            System.out.println(tache);
+        }
         req.setAttribute("project", id);
         req.setAttribute("taches", taches);
         dispatcher.forward(req, resp);

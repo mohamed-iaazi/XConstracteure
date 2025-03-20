@@ -13,7 +13,7 @@ public class TacheDao implements TacheService {
     DBConnection DBConnection = new DBConnection();
     @Override
     public boolean AddTask(Tache tache) {
-        String ADD_NEW_Task = "insert into tache( description , startdate , enddate  , projectid) values(?,?,?,?)";
+        String ADD_NEW_Task = "insert into tache( taskdesc , startdate , enddate  , projectid) values(?,?,?,?)";
         try (Connection connection= DBConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(ADD_NEW_Task)) {
             preparedStatement.setString(1,tache.getDescTache());
@@ -54,11 +54,12 @@ public class TacheDao implements TacheService {
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
+                int tacheId = resultSet.getInt("TacheId");
                 int projectId = resultSet.getInt("projectId");
-                String description = resultSet.getString("description");
+                String description = resultSet.getString("taskdesc");
                 Date startDate = resultSet.getDate("startdate");
                 Date endDate = resultSet.getDate("enddate");
-                Tache tache = new Tache(description, startDate, endDate,projectId );
+                Tache tache = new Tache(tacheId,description, startDate, endDate,projectId );
                 taches.add(tache);
             }
         } catch (Exception e) {
