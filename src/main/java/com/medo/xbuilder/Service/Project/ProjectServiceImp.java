@@ -1,12 +1,12 @@
 package com.medo.xbuilder.Service.Project;
 
-import com.medo.xbuilder.Dao.Project.ProjectDaoImp;
+import com.medo.xbuilder.Dao.Project.ProjectDao;
 import com.medo.xbuilder.Model.Project;
 
 import java.util.List;
 
 public class ProjectServiceImp implements ProjectService{
-    ProjectDaoImp dao = new ProjectDaoImp();
+    ProjectDao dao = new ProjectDao();
     @Override
     public boolean AddNewProject(Project Project) {
         return dao.AddNewProject(Project);

@@ -39,33 +39,34 @@
 
 <!-- Table Section -->
 <div class="container pt-5">
-    <h2 class="text-center mb-4">Project Details</h2>
+    <h2 class="text-center mb-4">Project Id : ${project}</h2>
 
     <!-- Table for larger screens -->
     <div class="table-responsive">
         <table class="table table-custom">
             <thead>
                 <tr>
-                    <th>Task</th>
-                    <th>Description</th>
+                    <th>Task Description</th>
                     <th>Start Date</th>
                     <th>End Date</th>
-                    <th>budget</th>
                     <th>Resources</th>
 
                 </tr>
             </thead>
             <tbody>
 
+            <c:forEach var="tache" items="taches">
+
                 <tr>
-                    <td>${project.name}</td>
-                    <td>${project.projectDescription}</td>
-                    <td>${project.startDate}</td>
-                    <td>${project.endDate}</td>
-                    <td>${project.budget}</td>
-                    <td>Man</td>
+                    <td>${tache.descTache}</td>
+                    <td>${tache.startDate}</td>
+                    <td>${tache.endDate}</td>
+                    <td>${tache.projectId}</td>
+
+
 
                 </tr>
+            </c:forEach>
 
             </tbody>
         </table>
@@ -75,11 +76,11 @@
     <div class="card-mobile">
         <div class="card border-dark-subtle p-3 mb-3">
             <div class="card-body">
-                <h5 class="card-title text-center">${project.name}</h5>
-                <p class="card-text"><strong>Description:</strong> ${project.projectDescription}</p>
-                <p class="card-text"><strong>Start Date:</strong> ${project.startDate}</p>
-                <p class="card-text"><strong>End Date:</strong> ${project.endDate}</p>
-                <p class="card-text"><strong>budget:</strong> ${project.budget}</p>
+                <h5 class="card-title text-center">${project}</h5>
+                <p class="card-text"><strong>Description:</strong> ${tache.descTache}</p>
+                <p class="card-text"><strong>Start Date:</strong> ${tache.startDate}</p>
+                <p class="card-text"><strong>End Date:</strong> ${tache.endDate}</p>
+                <p class="card-text"><strong>Resources:</strong> ${tache.projectId}</p>
             </div>
         </div>
     </div>
@@ -88,7 +89,9 @@
 <!-- Modal -->
 <div class="modal fade" id="AjouterTask" tabindex="-1" aria-labelledby="AjouterTaskModal" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <form method="POST" action="AjouterTask">
+        <form method="POST" action="${pageContext.request.contextPath}/ProjectDetail">
+            <input name="action" type="hidden" value="AjouterTask">
+            <input type="hidden" name="id" value="${project}">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="AjouterTaskModal">Ajouter Task</h5>
@@ -134,7 +137,7 @@
                     <div class="row mb-2">
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <select class="selectpicker form-control" multiple data-live-search="true" data-actions-box="true">
+                                <select name="resources" class="selectpicker form-control" multiple data-live-search="true" data-actions-box="true">
                                     <optgroup label="Resources" data-max-options="2">
                                         <option>Bala</option>
                                         <option>Man</option>

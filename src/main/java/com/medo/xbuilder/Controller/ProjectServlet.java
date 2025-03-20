@@ -1,5 +1,4 @@
 package com.medo.xbuilder.Controller;
-
 import com.medo.xbuilder.Model.Project;
 import com.medo.xbuilder.Service.Project.ProjectServiceImp;
 import jakarta.servlet.RequestDispatcher;
@@ -10,11 +9,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.List;
-
 
 @WebServlet("/")
 public class ProjectServlet  extends HttpServlet {
@@ -25,10 +21,6 @@ public class ProjectServlet  extends HttpServlet {
         List<Project> projects =service.DisplayALLProject();
         req.setAttribute("projects", projects);
         dispatcher.forward(req, resp);
-
-
-
-
 
     }
 
@@ -80,9 +72,8 @@ public class ProjectServlet  extends HttpServlet {
 
     private void SupprimerProject(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int id = Integer.parseInt(req.getParameter("id"));
-        System.out.println(id);
         ProjectServiceImp service = new ProjectServiceImp();
-        System.out.println( service.DeleteProject(id)); // Assuming this method works as expected
+        service.DeleteProject(id); // Assuming this method works as expected
         resp.sendRedirect(req.getContextPath() + "/"); // Redirect to the homepage after deletion
     }
 
