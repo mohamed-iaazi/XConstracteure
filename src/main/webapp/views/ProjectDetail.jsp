@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@taglib prefix="c" uri="jakarta.tags.core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,50 +39,101 @@
 
 <!-- Table Section -->
 <div class="container pt-5">
-    <h2 class="text-center mb-4">Project Details</h2>
+    <h2 class="text-center mb-4">Project Id : ${project}</h2>
 
     <!-- Table for larger screens -->
     <div class="table-responsive">
         <table class="table table-custom">
             <thead>
                 <tr>
-                    <th>Task</th>
-                    <th>Description</th>
+                    <th>Task Description</th>
                     <th>Start Date</th>
                     <th>End Date</th>
                     <th>Resources</th>
+                    <th>Action</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
+
+
+            <c:forEach var="tache" items="${taches}">
                 <tr>
-                    <td>Build Hospital</td>
-                    <td>Build a new hospital in the city center</td>
-                    <td>01/05/2025</td>
-                    <td>01/05/2026</td>
-                    <td>Manpower, Equipment</td>
+                    <td>${tache.descTache}</td>
+                    <td>${tache.startdateTache}</td>
+                    <td>${tache.enddateTache}</td>
+                    <td>null</td>
+                    <!-- Delete Button -->
+                   <td >
+                       <form method="post" action="${pageContext.request.contextPath}/ProjectDetail">
+                        <input type="hidden" name="action" value="SupprimerTask">
+                        <input type="hidden" name="id" value="${tache.idTache}">
+                        <button type="submit" class="btn btn-danger ">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </form>
+                   </td>
+
+
+                   <td>
+                    <!-- Update Button -->
+                    <button type="button" class="btn btn-info " data-bs-toggle="modal" data-bs-target="#UpdateProject"
+                            data-id="${project}">
+                        <a class="text-light">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                    </button>
+                    </td>
+
                 </tr>
+            </c:forEach>
+
             </tbody>
         </table>
     </div>
 
+
+<c:forEach var="tache" items="${taches}">
+    <div class="ms-5 ps-5 ">
     <!-- Card layout for mobile screens -->
-    <div class="card-mobile">
-        <div class="card border-dark-subtle p-3 mb-3">
+<div class="card-mobile w-100 ">
+    <div class="card border-dark-subtle p-3 mb-3  w-75">
             <div class="card-body">
-                <h5 class="card-title text-center">Build Hospital</h5>
-                <p class="card-text"><strong>Description:</strong> Build a new hospital in the city center</p>
-                <p class="card-text"><strong>Start Date:</strong> 01/05/2025</p>
-                <p class="card-text"><strong>End Date:</strong> 01/05/2026</p>
-                <p class="card-text"><strong>Resources:</strong> Manpower, Equipment</p>
+                <h5 class="card-title text-center mb-1 fw-bold">${project}</h5>
+                <p class="card-text"><strong>Description:</strong> ${tache.descTache}</p>
+                <p class="card-text"><strong>Start Date:</strong> ${tache.startdateTache}</p>
+                <p class="card-text"><strong>End Date:</strong> ${tache.enddateTache}</p>
+                <p class="card-text"><strong>Resources:</strong> null</p>
+                <!-- Delete Button -->
+                <form method="post" action="${pageContext.request.contextPath}/ProjectDetail">
+                    <input type="hidden" name="action" value="SupprimerTask">
+                    <input type="hidden" name="id" value="${tache.idTache}">
+                    <input type="hidden" name="projectId" value="${project}">
+                    <button type="submit" class="btn btn-danger d-block ms-auto me-auto">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </form>
+                <!-- Update Button -->
+                <button  type="button" class="btn btn-info d-block ms-auto me-auto mt-2" data-bs-toggle="modal" data-bs-target="#UpdateProject"
+                        data-id="${project}">
+                    <a class="text-light">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                </button>
             </div>
         </div>
     </div>
 </div>
+    </c:forEach>
+</div>
 
-<!-- Modal -->
+
+    <!-- Modal -->
 <div class="modal fade" id="AjouterTask" tabindex="-1" aria-labelledby="AjouterTaskModal" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <form method="POST" action="AjouterTask">
+        <form method="POST" action="${pageContext.request.contextPath}/ProjectDetail">
+            <input name="action" type="hidden" value="AjouterTask">
+            <input type="hidden" name="projectId" value="${project}">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="AjouterTaskModal">Ajouter Task</h5>
@@ -127,7 +179,7 @@
                     <div class="row mb-2">
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <select class="selectpicker form-control" multiple data-live-search="true" data-actions-box="true">
+                                <select name="resources" class="selectpicker form-control" multiple data-live-search="true" data-actions-box="true">
                                     <optgroup label="Resources" data-max-options="2">
                                         <option>Bala</option>
                                         <option>Man</option>
@@ -172,11 +224,7 @@
             new bootstrap.Select(select);
         });
 
-        document.getElementById("AjouterTask").addEventListener("shown.bs.modal", function () {
-            selectElements.forEach(function (select) {
-                select.dispatchEvent(new Event("change"));
-            });
-        });
+
     });
 </script>
 
