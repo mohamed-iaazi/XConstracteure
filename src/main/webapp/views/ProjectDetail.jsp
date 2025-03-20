@@ -79,12 +79,18 @@
 
                    <td>
                     <!-- Update Button -->
-                    <button type="button" class="btn btn-info " data-bs-toggle="modal" data-bs-target="#UpdateProject"
-                            data-id="${project}">
+                    <button type="button" class="btn btn-info " data-bs-toggle="modal" data-bs-target="#UpdateTask"
+                            data-TaskId="${tache.idTache}"
+                            data-projectId="${project}"
+                            data-descTache="${tache.descTache}"
+                            data-startdate="${tache.startdateTache}"
+                            data-enddate="${tache.enddateTache}"
+                    >
                         <a class="text-light">
                             <i class="fas fa-edit"></i>
                         </a>
                     </button>
+
                     </td>
 
                 </tr>
@@ -96,16 +102,17 @@
 
 
 <c:forEach var="tache" items="${taches}">
-    <div class="ms-5 ps-5 ">
+    <div >
     <!-- Card layout for mobile screens -->
-<div class="card-mobile w-100 ">
-    <div class="card border-dark-subtle p-3 mb-3  w-75">
+<div class="card-mobile  ">
+    <div class="card border-dark-subtle p-3 mb-3 w-100">
             <div class="card-body">
-                <h5 class="card-title text-center mb-1 fw-bold">${project}</h5>
+                <h5 class="card-title text-center mb-1 fw-bold"> Task : ${tache.idTache}</h5>
                 <p class="card-text"><strong>Description:</strong> ${tache.descTache}</p>
                 <p class="card-text"><strong>Start Date:</strong> ${tache.startdateTache}</p>
                 <p class="card-text"><strong>End Date:</strong> ${tache.enddateTache}</p>
                 <p class="card-text"><strong>Resources:</strong> null</p>
+
                 <!-- Delete Button -->
                 <form method="post" action="${pageContext.request.contextPath}/ProjectDetail">
                     <input type="hidden" name="action" value="SupprimerTask">
@@ -116,8 +123,13 @@
                     </button>
                 </form>
                 <!-- Update Button -->
-                <button  type="button" class="btn btn-info d-block ms-auto me-auto mt-2" data-bs-toggle="modal" data-bs-target="#UpdateProject"
-                        data-id="${project}">
+                <button  type="button" class="btn btn-info d-block ms-auto me-auto mt-2" data-bs-toggle="modal" data-bs-target="#UpdateTask"
+                         data-TaskId="${tache.idTache}"
+                         data-projectId="${project}"
+                         data-descTache="${tache.descTache}"
+                         data-startdate="${tache.startdateTache}"
+                         data-enddate="${tache.enddateTache}"
+                >
                     <a class="text-light">
                         <i class="fas fa-edit"></i>
                     </a>
@@ -129,6 +141,8 @@
     </c:forEach>
 </div>
 
+
+    <%@include file="./../componant/UpdateTask.jsp"%>
 
     <!-- Modal -->
 <div class="modal fade" id="AjouterTask" tabindex="-1" aria-labelledby="AjouterTaskModal" aria-hidden="true">

@@ -46,7 +46,24 @@ public class TacheDao implements TacheService {
 
     @Override
     public boolean UpdateTask(Tache tache) {
-        return false;
+        String UPDATE_PROJECT="update tache set taskdesc=?  , startdate =? , enddate =?   where TacheId=? ";
+        try {
+            Connection connection = DBConnection.getConnection();
+            PreparedStatement preparedStatement= connection.prepareStatement(UPDATE_PROJECT);
+            preparedStatement.setString(1,tache.getDescTache());
+            preparedStatement.setDate(2,tache.getStartdateTache());
+            preparedStatement.setDate(3,tache.getEnddateTache());
+            preparedStatement.setInt(4,tache.getIdTache());
+            if (preparedStatement.executeUpdate()!=0){
+                return true;
+            }
+            return true;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+
+        }
     }
 
     @Override

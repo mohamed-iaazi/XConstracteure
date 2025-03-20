@@ -109,7 +109,6 @@
                             </button>
                         </form>
 
-
                         <!-- Update Button -->
                         <button type="button" class="btn btn-info m-1" data-bs-toggle="modal" data-bs-target="#UpdateProject"
                                 data-id="${project.projectId}"
