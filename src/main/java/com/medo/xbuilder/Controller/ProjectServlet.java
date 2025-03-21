@@ -51,7 +51,7 @@ public class ProjectServlet  extends HttpServlet {
         String description = req.getParameter("description");
         Date startDate = Date.valueOf(LocalDate.parse(req.getParameter("startdate")));
         Date endDate = Date.valueOf(LocalDate.parse(req.getParameter("enddate")));
-        int budget = Integer.parseInt(req.getParameter("budget"));
+        float budget = Float.parseFloat(req.getParameter("budget"));
         ProjectServiceImp service = new ProjectServiceImp();
         service.AddNewProject(new Project(name, description, startDate, endDate, budget));
         resp.sendRedirect(req.getContextPath() + "/");
@@ -64,7 +64,7 @@ public class ProjectServlet  extends HttpServlet {
         String description = req.getParameter("description");
         Date startDate = Date.valueOf(LocalDate.parse(req.getParameter("startdate")));
         Date endDate = Date.valueOf(LocalDate.parse(req.getParameter("enddate")));
-        int budget = Integer.parseInt(req.getParameter("budget"));
+        float budget = Float.parseFloat(req.getParameter("budget"));
         ProjectServiceImp service = new ProjectServiceImp();
         Project project=new Project(id, name, description, startDate, endDate, budget);
         service.UpdateProject(project);

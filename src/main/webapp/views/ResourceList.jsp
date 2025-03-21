@@ -239,22 +239,7 @@
 <!-- Bootstrap-Select JS (Updated Version) -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/js/bootstrap-select.min.js"></script>
 
-<!-- Initialize Bootstrap-Select (Vanilla JS) -->
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        var selectElements = document.querySelectorAll(".selectpicker");
-        
-        selectElements.forEach(function (select) {
-            new bootstrap.Select(select);
-        });
 
-        document.getElementById("AjouterTask").addEventListener("shown.bs.modal", function () {
-            selectElements.forEach(function (select) {
-                select.dispatchEvent(new Event("change"));
-            });
-        });
-    });
-</script>
 
 
 </body>

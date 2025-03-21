@@ -19,7 +19,7 @@ public class ProjectDao implements ProjectService {
             preparedStatement.setString(2,Project.getProjectDescription());
             preparedStatement.setDate(3, Project.getStartDate());
             preparedStatement.setDate(4, Project.getEndDate());
-            preparedStatement.setInt(5,Project.getBudget());
+            preparedStatement.setFloat(5,Project.getBudget());
             preparedStatement.executeUpdate();
             return true;
 
@@ -40,12 +40,10 @@ public class ProjectDao implements ProjectService {
             preparedStatement.setString(2,Project.getProjectDescription());
             preparedStatement.setDate(3,Project.getStartDate());
             preparedStatement.setDate(4,Project.getEndDate());
-            preparedStatement.setInt(5,Project.getBudget());
+            preparedStatement.setFloat(5,Project.getBudget());
             preparedStatement.setInt(6,Project.getProjectId());
-            if (preparedStatement.executeUpdate()!=0){
                 return true;
-            }
-            return true;
+
 
         } catch (Exception e) {
             e.printStackTrace();
