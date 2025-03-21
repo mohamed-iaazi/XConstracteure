@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,16 +52,51 @@
                     <th>type</th>
                     <th>quantité</th>
                     <th>fournisseur</th>
+                    <th>Actions </th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
+
+
             <c:forEach var="resource" items="${resources}">
                 <tr>
-                    <td>${resource.ResourceName}</td>
-                    <td>${resource.ResourceDetail}</td>
-                    <td>${resource.ResourceType}</td>
-                    <td>${resource.ResourceQuantite}</td>
-                    <td>${resource.ResourceFournisseur}</td>
+                    <td>${resource.getResourceName()}</td>
+                    <td>${resource.getResourceDetail()}</td>
+                    <td>${resource.getResourceType()}</td>
+                    <td>${resource.getResourceQuantite()}</td>
+                    <td>${resource.getResourceFournisseur()}</td>
+
+                    <!-- Delete Button -->
+                    <td >
+                        <form method="post" action="${pageContext.request.contextPath}/Resources">
+                            <input type="hidden" name="action" value="DeleteResource">
+                            <input type="hidden" name="id" value="${tache.idTache}">
+
+                            <button type="submit" class="btn btn-danger ">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </form>
+                    </td>
+
+                    <td>
+                        <!-- Update Button -->
+                        <button type="button" class="btn btn-info " data-bs-toggle="modal" data-bs-target="#UpdateResource"
+                                data-resourceId="${resource.getResourceId()}"
+                                data-name="${resource.getResourceName()}"
+                                data-detail="${resource.getResourceDetail()}"
+                                data-type="${resource.getResourceType()}"
+                                data-quantity="${resource.getResourceQuantite()}"
+                                data-fournisseur="${resource.getResourceFournisseur()}"
+
+                        >
+                            <a class="text-light">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                        </button>
+
+                    </td>
+
                 </tr>
             </c:forEach>
             </tbody>
@@ -68,22 +104,52 @@
     </div>
 
     <!-- Card layout for mobile screens -->
-    <div class="card-mobile">
+<c:forEach var="resource" items="${resources}">
+
+<div class="card-mobile">
         <div class="card border-dark-subtle p-3 mb-3">
             <div class="card-body">
-                <p class="card-text"><strong>Name:</strong> bala</p>
-                <p class="card-text"><strong>type:</strong>material</p>
-                <p class="card-text"><strong>quantité:</strong> 10 ps</p>
-                <p class="card-text"><strong>fournisseur:</strong>  Equipment</p>
+                <p class="card-text"><strong>Name:</strong> ${resource.getResourceName()}</p>
+                <p class="card-text"><strong>Detail :</strong>${resource.getResourceDetail()}</p>
+                <p class="card-text"><strong>Type :</strong>${resource.getResourceType()}</p>
+                <p class="card-text"><strong>Quantité:</strong> ${resource.getResourceQuantite()} Ps</p>
+                <p class="card-text"><strong>Fournisseur:</strong> ${resource.getResourceFournisseur()}</p>
+
+
+
+
+                <!-- Delete Button -->
+                <form method="post" action="${pageContext.request.contextPath}/Resources">
+                    <input type="hidden" name="action" value="DeleteResource">
+                    <input type="hidden" name="resourceId" value="${resource.getResourceId()}">
+                    <button type="submit" class="btn btn-danger d-block ms-auto me-auto">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </form>
+                <!-- Update Button -->
+                <button  type="button" class="btn btn-info d-block ms-auto me-auto mt-2" data-bs-toggle="modal" data-bs-target="#UpdateResource"
+                         data-resourceId="${resource.getResourceId()}"
+                         data-name="${resource.getResourceName()}"
+                         data-detail="${resource.getResourceDetail()}"
+                         data-type="${resource.getResourceType()}"
+                         data-quantity="${resource.getResourceQuantite()}"
+                         data-fournisseur="${resource.getResourceFournisseur()}"
+                >
+                    <a class="text-light">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                </button>
+
             </div>
         </div>
     </div>
 </div>
+    </c:forEach>
 
 <!-- Modal -->
 <div class="modal fade" id="AjouterResource" tabindex="-1" aria-labelledby="AjouterResourceModal" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <form method="POST" action="AjouterResource">
+        <form method="POST" action="Resources">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="AjouterResourceModal">Ajouter Resource</h5>
@@ -154,7 +220,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <input type="submit" class="btn btn-success" value="Add">
+                <input name="action"  type="submit" class="btn btn-success" value="AddResource">
             </div>
         </div>
         </form>

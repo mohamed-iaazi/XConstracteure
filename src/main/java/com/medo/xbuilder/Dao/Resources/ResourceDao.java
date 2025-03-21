@@ -50,7 +50,7 @@ public class ResourceDao implements ResourceService {
                 String name = resultSet.getString("name");
                 String detail = resultSet.getString("detail");
                 String type = resultSet.getString("type");
-                int quantite = resultSet.getInt("quantite");
+                int quantite = resultSet.getInt("quantité");
                 String fournisseur = resultSet.getString("fournisseur");
                 Resource resource= new Resource(ResourceId,name ,detail ,type ,quantite ,fournisseur);
                 resources.add(resource);

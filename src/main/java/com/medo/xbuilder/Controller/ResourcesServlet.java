@@ -22,6 +22,9 @@ public class ResourcesServlet extends HttpServlet {
         ResourceServiceImp service = new ResourceServiceImp();
         RequestDispatcher dispatcher=req.getRequestDispatcher("/views/ResourceList.jsp");
         List<Resource> resources = service.DisplayALLResource();
+        for (Resource resource : resources) {
+            System.out.println(resource.getResourceName());
+        }
         req.setAttribute("resources", resources);
         dispatcher.forward(req,resp);
     }
@@ -31,7 +34,7 @@ public class ResourcesServlet extends HttpServlet {
 
         String action = req.getParameter("action");
         switch (action) {
-            case "AjouterResource":
+            case "AddResource":
                 AjouterResource(req,resp);
 
                 break;
