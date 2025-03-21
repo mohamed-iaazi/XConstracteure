@@ -56,11 +56,12 @@ public class ResourcesServlet extends HttpServlet {
 
     private void UpdateResource(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ResourceServiceImp service = new ResourceServiceImp();
+
         int id = Integer.parseInt(req.getParameter("resourceId"));
         String name = req.getParameter("name");
         String detail = req.getParameter("detail");
         String type = req.getParameter("type");
-        int quantite = Integer.parseInt(req.getParameter("quantité"));
+        int quantite = Integer.parseInt(req.getParameter("quantite"));
         String fournisseur = req.getParameter("fournisseur");
         service.UpdateResource(new Resource(id,name,detail,type,quantite,fournisseur));
         resp.sendRedirect(req.getContextPath()+"/Resources");

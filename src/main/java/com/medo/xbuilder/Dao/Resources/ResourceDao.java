@@ -80,14 +80,18 @@ public class ResourceDao implements ResourceService {
 
     @Override
     public boolean UpdateResource(Resource resource) {
-        String UPDATE_RESOURCE="update project set name=? ,  detail =? , type =? , quantité =? ,fournisseur=?  where ResourceId=? ";
+        String UPDATE_RESOURCE="update Resource set name=? ,  detail =? , type =? , quantité =? ,fournisseur=?  where ResourceId=? ";
         try (Connection connection= DBConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_RESOURCE)) {
+
             preparedStatement.setString(1,resource.getResourceName());
             preparedStatement.setString(2,resource.getResourceDetail());
             preparedStatement.setString(3, resource.getResourceType());
             preparedStatement.setInt(4, resource.getResourceQuantite());
             preparedStatement.setString(5,resource.getResourceFournisseur());
+            preparedStatement.setInt(6,resource.getResourceId());
+
+
             preparedStatement.executeUpdate();
             return true;
 

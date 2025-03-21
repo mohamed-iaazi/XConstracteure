@@ -78,15 +78,17 @@
 
                     <td>
                         <!-- Update Button -->
-                        <button type="button" class="btn btn-info " data-bs-toggle="modal" data-bs-target="#UpdateResource"
+                        <button type="button" class="btn btn-info "
                                 data-resourceId="${resource.getResourceId()}"
                                 data-name="${resource.getResourceName()}"
                                 data-detail="${resource.getResourceDetail()}"
                                 data-type="${resource.getResourceType()}"
                                 data-quantity="${resource.getResourceQuantite()}"
                                 data-fournisseur="${resource.getResourceFournisseur()}"
+                                data-bs-toggle="modal" data-bs-target="#UpdateResource"
 
                         >
+
                             <a class="text-light">
                                 <i class="fas fa-edit"></i>
                             </a>
