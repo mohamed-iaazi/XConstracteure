@@ -43,21 +43,20 @@ public class ResourcesServlet extends HttpServlet {
                     case "DeleteResource":
                         DeleteResource(req,resp);
                         break;
-
-
         }
 
     }
 
     private void DeleteResource(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int id = Integer.parseInt(req.getParameter("id"));
+        int id = Integer.parseInt(req.getParameter("resourceId"));
         ResourceServiceImp service = new ResourceServiceImp();
         service.DeleteResource(id);
+        resp.sendRedirect(req.getContextPath()+"/Resources");
     }
 
     private void UpdateResource(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ResourceServiceImp service = new ResourceServiceImp();
-        int id = Integer.parseInt(req.getParameter("id"));
+        int id = Integer.parseInt(req.getParameter("resourceId"));
         String name = req.getParameter("name");
         String detail = req.getParameter("detail");
         String type = req.getParameter("type");

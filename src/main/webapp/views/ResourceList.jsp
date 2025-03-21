@@ -69,8 +69,7 @@
                     <td >
                         <form method="post" action="${pageContext.request.contextPath}/Resources">
                             <input type="hidden" name="action" value="DeleteResource">
-                            <input type="hidden" name="id" value="${tache.idTache}">
-
+                            <input type="hidden" name="resourceId" value="${resource.getResourceId()}">
                             <button type="submit" class="btn btn-danger ">
                                 <i class="fas fa-trash"></i>
                             </button>

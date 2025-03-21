@@ -86,3 +86,37 @@
         </form>
     </div>
 </div>
+
+
+<script>
+     const  UpdateResourceModal = document.getElementById('UpdateResource');
+     UpdateResourceModal.addEventListener('show.bs.model',  function (event){
+            console.log(event);
+            const  btn = event.currentTarget;
+
+            const  name = document.getElementById('name');
+            const detail = document.getElementById('detail');
+            const type = document.getElementById('type');
+            const quantity = document.getElementById('quantité');
+            const fournisseur = document.getElementById('fournisseur');
+
+            const  nameModel =btn.getAttribute('data-name');
+            const detailModel =btn.getAttribute('data-detail');
+            const typeModel =btn.getAttribute('data-type');
+            const quantityModel =btn.getAttribute('data-quantity');
+            const fournisseurModel =btn.getAttribute('data-fournisseur');
+
+            name.value = nameModel.value;
+            detail.value = detailModel.value;
+            quantity.value = quantityModel.value;
+            fournisseur.value = fournisseurModel.value;
+            type.value = typeModel.value;
+
+
+
+
+
+     });
+
+
+</script>
