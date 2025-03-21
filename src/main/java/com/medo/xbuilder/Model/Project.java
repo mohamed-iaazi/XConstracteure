@@ -9,9 +9,9 @@ public class Project {
    private  String projectDescription ;
    private Date startDate ;
    private Date endDate ;
-   private  int budget;
+   private  float budget;
 
-    public Project(String name, String projectDescription, Date startDate, Date endDate, int budget) {
+    public Project(String name, String projectDescription, Date startDate, Date endDate, float budget) {
         this.name = name;
         this.projectDescription = projectDescription;
         this.startDate = startDate;
@@ -19,7 +19,7 @@ public class Project {
         this.budget = budget;
     }
 
-    public Project(int projectId, String name, String projectDescription, Date startDate, Date endDate, int budget) {
+    public Project(int projectId, String name, String projectDescription, Date startDate, Date endDate, float budget) {
         this.projectId = projectId;
         this.name = name;
         this.projectDescription = projectDescription;
@@ -72,11 +72,11 @@ public class Project {
         this.endDate = endDate;
     }
 
-    public int getBudget() {
+    public float getBudget() {
         return budget;
     }
 
-    public void setBudget(int budget) {
+    public void setBudget(float budget) {
         this.budget = budget;
     }
 }

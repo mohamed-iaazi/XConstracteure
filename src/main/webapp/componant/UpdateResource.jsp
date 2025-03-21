@@ -90,7 +90,7 @@
 
 <script>
      const  UpdateResourceModal = document.getElementById('UpdateResource');
-     UpdateResourceModal.addEventListener('show.bs.model',  function (event){
+     UpdateResourceModal.addEventListener('show.bs.modal',  function (event){
             console.log(event);
             const  btn = event.currentTarget;
 
