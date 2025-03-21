@@ -12,3 +12,4 @@ public interface ResourceService {
     Resource DisplayResourceById(int id);
     boolean UpdateResource(Resource resource);
 }
+
