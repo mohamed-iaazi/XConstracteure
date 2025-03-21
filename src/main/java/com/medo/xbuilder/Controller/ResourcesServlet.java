@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.util.List;
 
 
+
 @WebServlet("/Resources")
 public class ResourcesServlet extends HttpServlet {
     @Override
@@ -27,6 +28,28 @@ public class ResourcesServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+
+        String action = req.getParameter("action");
+        switch (action) {
+            case "AjouterResource":
+                AjouterResource(req,resp);
+
+                break;
+
+
+        }
+
+    }
+
+    private void AjouterResource(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        ResourceServiceImp service = new ResourceServiceImp();
+        String name = req.getParameter("name");
+        String detail = req.getParameter("detail");
+        String type = req.getParameter("type");
+        int quantite = Integer.parseInt(req.getParameter("quantité"));
+        String fournisseur = req.getParameter("fournisseur");
+        service.AddNewResource(new Resource(name,detail,type,quantite,fournisseur));
+        resp.sendRedirect(req.getContextPath()+"/Resources");
+
     }
 }

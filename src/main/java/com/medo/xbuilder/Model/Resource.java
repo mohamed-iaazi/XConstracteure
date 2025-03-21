@@ -3,16 +3,34 @@ package com.medo.xbuilder.Model;
 public class Resource {
     private  int ResourceId ;
     private  String ResourceName ;
+    private String ResourceDetail;
     private  String ResourceType ;
-    private  String ResourceQuantite ;
+    private  int ResourceQuantite ;
     private  String ResourceFournisseur;
 
-    public Resource(int resourceId, String resourceName, String resourceType, String resourceQuantite, String resourceFournisseur) {
+    public Resource(int resourceId, String resourceName, String ResourceDetail, String resourceType, int resourceQuantite, String resourceFournisseur) {
         ResourceId = resourceId;
         ResourceName = resourceName;
         ResourceType = resourceType;
         ResourceQuantite = resourceQuantite;
         ResourceFournisseur = resourceFournisseur;
+        this.ResourceDetail = ResourceDetail;
+    }
+
+    public Resource(String resourceName, String resourceDetail, String resourceType, int resourceQuantite, String resourceFournisseur) {
+        ResourceName = resourceName;
+        ResourceDetail = resourceDetail;
+        ResourceType = resourceType;
+        ResourceQuantite = resourceQuantite;
+        ResourceFournisseur = resourceFournisseur;
+    }
+
+    public String getResourceDetail() {
+        return ResourceDetail;
+    }
+
+    public void setResourceDetail(String resourceDetail) {
+        ResourceDetail = resourceDetail;
     }
 
     public int getResourceId() {
@@ -39,11 +57,11 @@ public class Resource {
         ResourceType = resourceType;
     }
 
-    public String getResourceQuantite() {
+    public int getResourceQuantite() {
         return ResourceQuantite;
     }
 
-    public void setResourceQuantite(String resourceQuantite) {
+    public void setResourceQuantite(int resourceQuantite) {
         ResourceQuantite = resourceQuantite;
     }
 

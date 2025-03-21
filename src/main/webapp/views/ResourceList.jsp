@@ -106,6 +106,16 @@
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <div class="input-group">
+                                    <textarea name="detail" class="form-control"  placeholder="Resource Detail "></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-2">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <div class="input-group">
                                     <input name="type" class="form-control" type="text" placeholder="type"></input>
                                 </div>
                             </div>
@@ -128,14 +138,14 @@
                     <div class="row mb-2">
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <select class="selectpicker form-control">
-                                    <optgroup label="fournisseur" data-max-options="2" >
-                                        <option disabled selected>Choose One</option>
-                                        <option>TSL</option>
-                                        <option>PEb</option>
-                                        <option>FSTR</option>
-                                    </optgroup>
-                                </select>
+                                <label> <span class="text-secon">Fournisseur</span>
+                                    <select name="fournisseur" class="selectpicker form-control">
+                                            <option disabled selected>Choose One</option>
+                                            <option>TSL</option>
+                                            <option>PEb</option>
+                                            <option>FSTR</option>
+                                        </select>
+                                </label>
                             </div>
                         </div>
                     </div>
