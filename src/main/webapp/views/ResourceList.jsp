@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@taglib prefix="c" uri="jakarta.tags.core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,18 +47,22 @@
             <thead>
                 <tr>
                     <th>Name</th>
+                    <th>Detail</th>
                     <th>type</th>
                     <th>quantité</th>
                     <th>fournisseur</th>
                 </tr>
             </thead>
             <tbody>
+            <c:forEach var="resource" items="${resources}">
                 <tr>
-                    <td>bala</td>
-                    <td>materail</td>
-                    <td>10ps</td>
-                    <td>Manpower</td>
+                    <td>${resource.ResourceName}</td>
+                    <td>${resource.ResourceDetail}</td>
+                    <td>${resource.ResourceType}</td>
+                    <td>${resource.ResourceQuantite}</td>
+                    <td>${resource.ResourceFournisseur}</td>
                 </tr>
+            </c:forEach>
             </tbody>
         </table>
     </div>
