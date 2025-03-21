@@ -22,6 +22,9 @@ public class ResourcesServlet extends HttpServlet {
         ResourceServiceImp service = new ResourceServiceImp();
         RequestDispatcher dispatcher=req.getRequestDispatcher("/views/ResourceList.jsp");
         List<Resource> resources = service.DisplayALLResource();
+        for (Resource resource : resources) {
+            System.out.println(resource.getResourceName());
+        }
         req.setAttribute("resources", resources);
         dispatcher.forward(req,resp);
     }
@@ -31,14 +34,36 @@ public class ResourcesServlet extends HttpServlet {
 
         String action = req.getParameter("action");
         switch (action) {
-            case "AjouterResource":
+            case "AddResource":
                 AjouterResource(req,resp);
-
                 break;
-
-
+                case "UpdateResource":
+                    UpdateResource(req,resp);
+                    break;
+                    case "DeleteResource":
+                        DeleteResource(req,resp);
+                        break;
         }
 
+    }
+
+    private void DeleteResource(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int id = Integer.parseInt(req.getParameter("resourceId"));
+        ResourceServiceImp service = new ResourceServiceImp();
+        service.DeleteResource(id);
+        resp.sendRedirect(req.getContextPath()+"/Resources");
+    }
+
+    private void UpdateResource(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        ResourceServiceImp service = new ResourceServiceImp();
+        int id = Integer.parseInt(req.getParameter("resourceId"));
+        String name = req.getParameter("name");
+        String detail = req.getParameter("detail");
+        String type = req.getParameter("type");
+        int quantite = Integer.parseInt(req.getParameter("quantité"));
+        String fournisseur = req.getParameter("fournisseur");
+        service.UpdateResource(new Resource(id,name,detail,type,quantite,fournisseur));
+        resp.sendRedirect(req.getContextPath()+"/Resources");
     }
 
     private void AjouterResource(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

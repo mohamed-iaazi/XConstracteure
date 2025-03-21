@@ -1,6 +1,8 @@
 package com.medo.xbuilder.Model;
 
-public class Resource {
+import java.io.Serializable;
+
+public class Resource  {
     private  int ResourceId ;
     private  String ResourceName ;
     private String ResourceDetail;
@@ -71,5 +73,10 @@ public class Resource {
 
     public void setResourceFournisseur(String resourceFournisseur) {
         ResourceFournisseur = resourceFournisseur;
+    }
+
+    @Override
+    public String toString() {
+        return  "name" + ResourceName;
     }
 }

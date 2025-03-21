@@ -33,7 +33,18 @@ public class ResourceDao implements ResourceService {
 
     @Override
     public boolean DeleteResource(int id) {
-        return false;
+        String DELETE_RESOURCE = "delete  from resource where ResourceId=?";
+        try {
+            Connection connection = DBConnection.getConnection();
+            PreparedStatement preparedStatement= connection.prepareStatement(DELETE_RESOURCE);
+            preparedStatement.setInt(1,id);
+            preparedStatement.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+
+        }
     }
 
     @Override
@@ -50,7 +61,7 @@ public class ResourceDao implements ResourceService {
                 String name = resultSet.getString("name");
                 String detail = resultSet.getString("detail");
                 String type = resultSet.getString("type");
-                int quantite = resultSet.getInt("quantite");
+                int quantite = resultSet.getInt("quantité");
                 String fournisseur = resultSet.getString("fournisseur");
                 Resource resource= new Resource(ResourceId,name ,detail ,type ,quantite ,fournisseur);
                 resources.add(resource);
