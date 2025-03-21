@@ -7,10 +7,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resource List</title>
-
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    
     <!-- Custom Styles -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
     
@@ -146,6 +144,7 @@
 </div>
     </c:forEach>
 
+    <%@include file="./../componant/UpdateResource.jsp"%>
 <!-- Modal -->
 <div class="modal fade" id="AjouterResource" tabindex="-1" aria-labelledby="AjouterResourceModal" aria-hidden="true">
     <div class="modal-dialog" role="document">
