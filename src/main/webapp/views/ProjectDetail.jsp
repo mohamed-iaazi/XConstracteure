@@ -22,6 +22,7 @@
     <!-- Bootstrap-Select CSS (Updated Version) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/css/bootstrap-select.min.css">
 </head>
+
 <body>
     <header class="mb-5 " style="z-index:999; overflow: hidden;  ">
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark p-2 ">
@@ -62,7 +63,15 @@
                     <td>${tache.descTache}</td>
                     <td>${tache.startdateTache}</td>
                     <td>${tache.enddateTache}</td>
-                    <td>null</td>
+                    <td>
+                        <button class="btn btn-dark text-light">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="btn btn-dark text-light" data-bs-toggle="modal" data-target="#AssociateResource">
+                            <i class="fas fa-plus"></i>
+                        </button>
+
+                    </td>
                     <!-- Delete Button -->
                    <td >
                        <form method="post" action="${pageContext.request.contextPath}/ProjectDetail">
@@ -187,9 +196,9 @@
                             <div class="col-sm-12">
                                 <select name="resources" class="selectpicker form-control" multiple data-live-search="true" data-actions-box="true">
                                     <optgroup label="Resources">
-                                        <option>Bala</option>
-                                        <option>Man</option>
-                                        <option>Cars</option>
+                                        <c:forEach var="resource" items="${resources}">
+                                            <option>${resource.getResourceName()}</option>
+                                        </c:forEach>
                                     </optgroup>
                                 </select>
                             </div>
@@ -206,6 +215,8 @@
 
     </div>
 </div>
+
+    <%@include file="./../componant/SelectResource.jsp"%>
 
 <!-- Floating Add Button -->
 <button type="button" class="btn btn-success btn-lg rounded-circle position-fixed bottom-0 end-0 m-4 shadow-lg" data-bs-toggle="modal" data-bs-target="#AjouterTask">

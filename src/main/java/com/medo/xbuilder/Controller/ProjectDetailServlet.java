@@ -2,8 +2,10 @@ package com.medo.xbuilder.Controller;
 
 import com.medo.xbuilder.Dao.Task.TacheDao;
 import com.medo.xbuilder.Model.Project;
+import com.medo.xbuilder.Model.Resource;
 import com.medo.xbuilder.Model.Tache;
 import com.medo.xbuilder.Service.Project.ProjectServiceImp;
+import com.medo.xbuilder.Service.Resources.ResourceServiceImp;
 import com.medo.xbuilder.Service.Tache.TacheServiceImp;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -23,11 +25,14 @@ public class ProjectDetailServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         TacheServiceImp serviceImp = new TacheServiceImp();
+        ResourceServiceImp resourceServiceImp = new ResourceServiceImp();
         RequestDispatcher  dispatcher = getServletContext().getRequestDispatcher("/views/ProjectDetail.jsp");
         int id = Integer.parseInt(req.getParameter("id"));
         List<Tache> taches =serviceImp.GetAllTasks(id);
+        List<Resource> resources=resourceServiceImp.DisplayALLResource();
         req.setAttribute("project", id);
         req.setAttribute("taches", taches);
+        req.setAttribute("resources", resources);
         dispatcher.forward(req, resp);
     }
 
