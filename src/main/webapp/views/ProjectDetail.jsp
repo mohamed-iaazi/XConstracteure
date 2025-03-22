@@ -64,10 +64,12 @@
                     <td>${tache.startdateTache}</td>
                     <td>${tache.enddateTache}</td>
                     <td>
-                        <button class="btn btn-dark text-light">
-                            <i class="fas fa-eye"></i>
-                        </button>
-                        <button class="btn btn-dark text-light" data-bs-toggle="modal" data-target="#AssociateResource">
+<%--                        <button class="btn btn-dark text-light">--%>
+<%--                            <i class="fas fa-eye"></i>--%>
+<%--                        </button>--%>
+<%--                        --%>
+                       <%@include file="./../componant/ViewRessource.jsp"%>
+                        <button class="btn btn-dark text-light" data-bs-toggle="modal" data-bs-target="#AssociateResource">
                             <i class="fas fa-plus"></i>
                         </button>
 
