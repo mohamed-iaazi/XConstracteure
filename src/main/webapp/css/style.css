@@ -10,6 +10,12 @@
  }
 
 }
+
+body{
+    background-size: cover;
+    background: url("./../img/background.jpg") no-repeat fixed !important;
+
+}
 li {
    border-bottom: 2px solid transparent;
 }
