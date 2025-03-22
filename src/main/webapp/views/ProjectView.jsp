@@ -144,7 +144,7 @@
 <!-- Modal -->
 <div class="modal fade" id="AjouterProject" tabindex="-1" aria-labelledby="AjouterProjectModal" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <form method="POST" action="${pageContext.request.contextPath}/">
+        <form id="form" method="POST" action="${pageContext.request.contextPath}/">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="AjouterProjectModal">Ajouter Project</h5>
@@ -156,7 +156,7 @@
                         <div class="row">
                             <div class="col-sm-12 mb-2">
                                 <div class="form-group">
-                                    <input name="name" class="form-control" type="text" placeholder="Name">
+                                    <input required id="name-input" name="name" class="form-control" type="text" placeholder="Name">
                                 </div>
                             </div>
                         </div>
@@ -164,7 +164,7 @@
                             <div class="col-sm-12 mb-2">
                                 <div class="form-group">
                                     <div class="input-group">
-                                        <textarea name="description" class="form-control" type="text" placeholder="description"></textarea>
+                                        <textarea required id="desc-input" name="description" class="form-control" type="text" placeholder="description"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -173,7 +173,7 @@
                             <div class="col-sm-12 mb-2">
                                 <div class="form-group">
                                     <div class="input-group">
-                                        <input name="startdate" class="form-control" type="date" placeholder="startDate">
+                                        <input required id="startdate-input" name="startdate" class="form-control" type="date" placeholder="startDate">
                                     </div>
                                 </div>
                             </div>
@@ -182,7 +182,7 @@
                             <div class="col-sm-12 mb-2">
                                 <div class="form-group">
                                     <div class="input-group">
-                                        <input name="enddate" class="form-control" type="date" placeholder="endDate">
+                                        <input required id="enddate-input" name="enddate" class="form-control" type="date" placeholder="endDate">
                                     </div>
                                 </div>
                             </div>
@@ -192,7 +192,7 @@
                         <div class="col-sm-10 co-lg-8 mb-2 d-block ms-auto me-auto ">
                             <div class="form-group">
                                 <div class="input-group">
-                                        <input name="budget" class="form-control" type="number" placeholder="budget"></input>
+                                        <input required id="budget-input" name="budget" class="form-control" type="number" placeholder="budget"></input>
                                 </div>
                             </div>
                         </div>
@@ -200,7 +200,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <input name="action" value="AjouterProject" type="submit" class="btn btn-success" >
+                    <input id="submit" name="action" value="AjouterProject" type="submit" class="btn btn-success" >
                 </div>
             </div>
         </form>
@@ -211,6 +211,7 @@
 <button type="button" class="btn btn-success btn-lg rounded-circle position-fixed bottom-0 end-0 m-4 shadow-lg" data-bs-toggle="modal" data-bs-target="#AjouterProject">
     <i class="fas fa-plus"></i>
 </button>
+<script src="${pageContext.request.contextPath}/js/InputValidation.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 </body>
