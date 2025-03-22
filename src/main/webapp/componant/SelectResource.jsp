@@ -17,6 +17,13 @@
     </optgroup>
 </select>
             </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <input name="action" value="UpdateProject" type="submit" class="btn btn-success">
+            </div>
         </div>
     </div>
 </div>
+
+
+
