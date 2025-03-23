@@ -11,29 +11,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da9afdc0-5ac2-4a60-a0b4-8c58f3059b06" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/medo/xbuilder/Controller/ProjectDetailServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/medo/xbuilder/controller/ProjectDetailServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/medo/xbuilder/Controller/ProjectServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/medo/xbuilder/controller/ProjectServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/medo/xbuilder/Controller/ResourcesServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/medo/xbuilder/controller/ResourcesServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/medo/xbuilder/Dao/Project/ProjectDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/medo/xbuilder/dao/project/ProjectDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/medo/xbuilder/Dao/Resources/ResourceDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/medo/xbuilder/dao/resources/ResourceDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/medo/xbuilder/Dao/Task/TacheDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/medo/xbuilder/dao/task/TacheDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/medo/xbuilder/Model/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/medo/xbuilder/model/Project.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/medo/xbuilder/Model/Resource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/medo/xbuilder/model/Resource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/medo/xbuilder/Model/Tache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/medo/xbuilder/model/Tache.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/medo/xbuilder/Model/TacheResources.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/medo/xbuilder/model/TacheResources.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/medo/xbuilder/Service/Project/ProjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/medo/xbuilder/service/project/ProjectService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/medo/xbuilder/Service/Project/ProjectServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/medo/xbuilder/service/project/ProjectServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/medo/xbuilder/Service/Resources/ResourceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/medo/xbuilder/service/resources/ResourceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/medo/xbuilder/Service/Resources/ResourceServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/medo/xbuilder/service/resources/ResourceServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/medo/xbuilder/Service/Tache/TacheService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/medo/xbuilder/service/tache/TacheService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/medo/xbuilder/Service/Tache/TacheServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/medo/xbuilder/service/tache/TacheServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/medo/xbuilder/Util/DBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/medo/xbuilder/util/DBConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/componant/UpdateFrom.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/componant/UpdateFrom.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ProjectDetail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/ProjectDetail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ProjectView.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/ProjectView.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ResourceList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/ResourceList.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/medo/xbuilder/dao/task/TacheDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/medo/xbuilder/dao/task/TacheDao.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,7 +149,7 @@
       <option name="presentableId" value="Default" />
       <updated>1742646578431</updated>
       <workItem from="1742646579828" duration="429000" />
-      <workItem from="1742672775708" duration="4235000" />
+      <workItem from="1742672775708" duration="5073000" />
     </task>
     <servers />
   </component>

@@ -11,5 +11,6 @@ public interface ResourceService {
     List<Resource> DisplayALLResource();
     Resource DisplayResourceById(int id);
     boolean UpdateResource(Resource resource);
+    boolean UpdateResourceQantity(Resource resource);
 }
 

@@ -26,7 +26,6 @@ public class TacheDao implements TacheService {
             preparedStatement.setInt(4,tache.getProjectId());
             preparedStatement.executeUpdate();
             return true;
-
         } catch (SQLException e) {
             log.log(Level.SEVERE,"Error occurred",e );            return  false;
 
@@ -61,7 +60,6 @@ public class TacheDao implements TacheService {
                 return true;
             }
             return true;
-
         } catch (Exception e) {
             log.log(Level.SEVERE,"Error occurred",e );
             return false;
@@ -102,7 +100,6 @@ public class TacheDao implements TacheService {
     public boolean AssociateRescource(TacheResources rescource) {
 
         String INSERT_TO_TASK_RESOURCE ="insert into TacheResource (TacheId , ResourceId , quantité) values(?,?,?)";
-
         try {
             Connection connection = DBConnection.getConnection();
             PreparedStatement preparedStatement= connection.prepareStatement(INSERT_TO_TASK_RESOURCE);

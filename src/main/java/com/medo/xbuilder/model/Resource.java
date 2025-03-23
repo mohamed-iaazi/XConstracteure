@@ -17,6 +17,11 @@ public class Resource  {
         this.ResourceDetail = ResourceDetail;
     }
 
+    public Resource(int resourceId, int resourceQuantite) {
+        ResourceId = resourceId;
+        ResourceQuantite = resourceQuantite;
+    }
+
     public Resource(String resourceName, String resourceDetail, String resourceType, int resourceQuantite, String resourceFournisseur) {
         ResourceName = resourceName;
         ResourceDetail = resourceDetail;

@@ -31,4 +31,9 @@ public class ResourceServiceImp implements ResourceService {
     public boolean UpdateResource(Resource resource) {
         return resourceDao.UpdateResource(resource);
     }
+
+    @Override
+    public boolean UpdateResourceQantity(Resource resource) {
+        return resourceDao.UpdateResourceQantity(resource);
+    }
 }

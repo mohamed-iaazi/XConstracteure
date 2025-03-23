@@ -106,4 +106,20 @@ public class ResourceDao implements ResourceService {
 
         }
     }
+
+    @Override
+    public boolean UpdateResourceQantity(Resource resource) {
+        String UPDATE_RESOURCEQ="update Resource set  quantité =?   where ResourceId=? ";
+        try (Connection connection= DBConnection.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_RESOURCEQ)) {
+            preparedStatement.setInt(1, resource.getResourceQuantite());
+            preparedStatement.setInt(2,resource.getResourceId());
+            preparedStatement.executeUpdate();
+            return true;
+
+        } catch (SQLException e) {
+            log.log(Level.SEVERE,"Error occurred",e );
+            return  false;
+
+        }    }
 }
