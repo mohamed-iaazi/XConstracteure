@@ -3,6 +3,7 @@ package com.medo.xbuilder.controller;
 import com.medo.xbuilder.model.Project;
 import com.medo.xbuilder.model.Resource;
 import com.medo.xbuilder.model.Tache;
+import com.medo.xbuilder.model.TacheResources;
 import com.medo.xbuilder.service.project.ProjectServiceImp;
 import com.medo.xbuilder.service.resources.ResourceServiceImp;
 import com.medo.xbuilder.service.tache.TacheServiceImp;
@@ -62,7 +63,11 @@ public class ProjectDetailServlet extends HttpServlet {
     }
 
     private void AssociateToResource(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-
+        TacheServiceImp serviceImp=new TacheServiceImp();
+        int taskId = Integer.parseInt(req.getParameter("taskId"));
+        int resources  = Integer.parseInt(req.getParameter("resources"));
+        int quantité = Integer.parseInt(req.getParameter("quantité"));
+        serviceImp.AssociateRescource(new TacheResources(quantité,taskId,resources));
 
     }
 
