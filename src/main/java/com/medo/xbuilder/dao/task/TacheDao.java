@@ -1,6 +1,7 @@
 package com.medo.xbuilder.dao.task;
 
 import com.medo.xbuilder.model.Tache;
+import com.medo.xbuilder.model.TacheResources;
 import com.medo.xbuilder.service.tache.TacheService;
 import com.medo.xbuilder.util.DBConnection;
 
@@ -96,4 +97,24 @@ public class TacheDao implements TacheService {
             throw new RuntimeException(e);
         }
         return taches;    }
+
+    @Override
+    public boolean AssociateRescource(TacheResources rescource) {
+
+        String INSERT_TO_TASK_RESOURCE ="insert into TacheResource (TacheId , ResourceId , quantité) values(?,?,?)";
+
+        try {
+            Connection connection = DBConnection.getConnection();
+            PreparedStatement preparedStatement= connection.prepareStatement(INSERT_TO_TASK_RESOURCE);
+            preparedStatement.setInt(1,rescource.getTacheId());
+            preparedStatement.setInt(2,rescource.getResourceId());
+            preparedStatement.setInt(3,rescource.getQuantité());
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            log.log(Level.SEVERE,"Error occurred",e );
+            throw new RuntimeException(e);
+        }
+
+        return false;
+    }
 }

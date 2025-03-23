@@ -2,6 +2,7 @@ package com.medo.xbuilder.service.tache;
 
 import com.medo.xbuilder.dao.task.TacheDao;
 import com.medo.xbuilder.model.Tache;
+import com.medo.xbuilder.model.TacheResources;
 
 import java.util.List;
 
@@ -30,5 +31,10 @@ public class TacheServiceImp implements TacheService {
     @Override
     public List<Tache> GetAllTasks(int id) {
         return tacheDao.GetAllTasks(id);
+    }
+
+    @Override
+    public boolean AssociateRescource(TacheResources rescource) {
+        return tacheDao.AssociateRescource(rescource);
     }
 }
