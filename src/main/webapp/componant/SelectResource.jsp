@@ -12,20 +12,47 @@
                     <h5 class="modal-title" id="AssociateResourceModal">Associate des Resource</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-            <div class="card-body">
-<select name="resources" class="selectpicker form-control m-5 w-50" multiple data-live-search="true" data-actions-box="true">
-    <optgroup label="Resources">
+                <form action="${pageContext.request.contextPath}/ProjectDetail" method="POST">
+                    <input type="hidden" name="action" value="AssociateToResource">
+                    <input type="hidden" name="taskId" id="taskId">
+                <div class="card-body">
+                    <select name="resources" class="form-control m-5 w-50" >
+
         <c:forEach var="resource" items="${resources}">
             <option>${resource.getResourceName()}</option>
         </c:forEach>
-    </optgroup>
 </select>
-            </div>
-            <div class="modal-footer">
+                    <input name="quantité" class="form-control w-50 d-block ms-auto me-auto " type="number" placeholder="quantite" required>
+
+                </div>
+            <div class="modal-footer mt-4">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <input type="submit" class="btn btn-success" value="Add">
             </div>
-        </div>
+                </form>
+
+            </div>
 
     </div>
 </div>
+
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const  selectModal = document.getElementById('AssociateResource');
+        selectModal.addEventListener('show.bs.modal', function (e) {
+            const  btn = e.relatedTarget;
+            const  taskId = btn.getAttribute('data-TaskId');
+            const  id =document.getElementById('taskId');
+            id.value=taskId;
+
+
+
+        })
+
+
+
+    })
+
+</script>

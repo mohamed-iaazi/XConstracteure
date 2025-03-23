@@ -65,12 +65,16 @@
                     <td>${tache.startdateTache}</td>
                     <td>${tache.enddateTache}</td>
                     <td>
-<%--                        <button class="btn btn-dark text-light">--%>
-<%--                            <i class="fas fa-eye"></i>--%>
-<%--                        </button>--%>
-<%--                        --%>
-                       <%@include file="./../componant/ViewRessource.jsp"%>
-                        <button class="btn btn-dark text-light" data-bs-toggle="modal" data-bs-target="#AssociateResource">
+                            <select name="resources" class="form-control w-25 btn btn-dark text-light "  >
+                                <option> <i class="fas fa-eye"></i></option>
+                                <c:forEach var="resource" items="${resources}">
+                                    <option disabled>${resource.getResourceName()}</option>
+                                </c:forEach>
+                            </select>
+
+                        <button class="btn btn-dark text-light" data-bs-toggle="modal" data-bs-target="#AssociateResource"
+                                data-TaskId="${tache.idTache}"
+                        >
                             <i class="fas fa-plus"></i>
                         </button>
 
@@ -240,17 +244,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/js/bootstrap-select.min.js"></script>
 
 <!-- Initialize Bootstrap-Select (Vanilla JS) -->
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        var selectElements = document.querySelectorAll(".selectpicker");
-        
-        selectElements.forEach(function (select) {
-            new bootstrap.Select(select);
-        });
 
-
-    });
-</script>
 
 
 </body>

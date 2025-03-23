@@ -11,7 +11,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da9afdc0-5ac2-4a60-a0b4-8c58f3059b06" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/medo/xbuilder/dao/task/TacheDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/medo/xbuilder/dao/task/TacheDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/componant/SelectResource.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/componant/SelectResource.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ProjectDetail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/ProjectDetail.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +151,7 @@
       <option name="presentableId" value="Default" />
       <updated>1742646578431</updated>
       <workItem from="1742646579828" duration="429000" />
-      <workItem from="1742672775708" duration="5073000" />
+      <workItem from="1742672775708" duration="7899000" />
     </task>
     <servers />
   </component>
