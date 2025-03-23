@@ -1,5 +1,5 @@
-<%@ page import="com.medo.xbuilder.Service.Project.ProjectServiceImp" %>
-<%@ page import="com.medo.xbuilder.Model.Project" %>
+<%@ page import="com.medo.xbuilder.service.project.ProjectServiceImp" %>
+<%@ page import="com.medo.xbuilder.model.Project" %>
 <%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: iaazi

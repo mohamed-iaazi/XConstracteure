@@ -1,15 +1,18 @@
-package com.medo.xbuilder.Dao.Project;
+package com.medo.xbuilder.dao.project;
 
-import com.medo.xbuilder.Model.Project;
-import com.medo.xbuilder.Service.Project.ProjectService;
-import com.medo.xbuilder.Util.DBConnection;
+import com.medo.xbuilder.model.Project;
+import com.medo.xbuilder.service.project.ProjectService;
+import com.medo.xbuilder.util.DBConnection;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ProjectDao implements ProjectService {
     DBConnection DBConnection=new DBConnection();
+    private  static final  Logger log = Logger.getLogger(ProjectDao.class.getName());
     @Override
     public boolean AddNewProject(Project Project)  {
         String ADD_NEW_PROJECT = "insert into project(name, description , startdate , enddate  ,budget ) values(?,?,?,?,?)";
@@ -46,7 +49,8 @@ public class ProjectDao implements ProjectService {
 
 
         } catch (Exception e) {
-            e.printStackTrace();
+         log.log(Level.SEVERE,"Error occurred",e );
+
             return false;
 
         }
@@ -62,7 +66,7 @@ public class ProjectDao implements ProjectService {
             preparedStatement.executeUpdate();
             return true;
         } catch (SQLException e) {
-            e.printStackTrace();
+            log.log(Level.SEVERE,"Error occurred",e );
             return false;
 
         }
@@ -87,6 +91,7 @@ public class ProjectDao implements ProjectService {
                 Projects.add(project);
             }
         } catch (Exception e) {
+            log.log(Level.SEVERE,"Error occurred",e );
             throw new RuntimeException(e);
         }
         return Projects;
@@ -113,6 +118,7 @@ public class ProjectDao implements ProjectService {
             }
 
         } catch (SQLException e) {
+            log.log(Level.SEVERE,"Error occurred",e );
             throw new RuntimeException(e);
         }
         return project;

@@ -1,7 +1,6 @@
-package com.medo.xbuilder.Model;
+package com.medo.xbuilder.model;
 
 import java.sql.Date;
-import java.time.LocalDate;
 
 public class Project {
    private  int projectId  ;

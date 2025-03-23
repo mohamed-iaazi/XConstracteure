@@ -14,6 +14,7 @@
 body{
     background: linear-gradient(to top, rgba(24, 24, 25, 0.47), rgba(69, 71, 71, 0.65)), url('./../img/background.jpg') no-repeat top center ;
     background-size: cover;
+    min-height: 100vh;
 
 }
 

@@ -1,7 +1,7 @@
-package com.medo.xbuilder.Service.Resources;
+package com.medo.xbuilder.service.resources;
 
-import com.medo.xbuilder.Dao.Resources.ResourceDao;
-import com.medo.xbuilder.Model.Resource;
+import com.medo.xbuilder.dao.resources.ResourceDao;
+import com.medo.xbuilder.model.Resource;
 
 import java.util.List;
 

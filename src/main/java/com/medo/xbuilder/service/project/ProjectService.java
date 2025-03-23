@@ -1,6 +1,6 @@
-package com.medo.xbuilder.Service.Project;
+package com.medo.xbuilder.service.project;
 
-import com.medo.xbuilder.Model.Project;
+import com.medo.xbuilder.model.Project;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.medo.xbuilder.Util;
+package com.medo.xbuilder.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

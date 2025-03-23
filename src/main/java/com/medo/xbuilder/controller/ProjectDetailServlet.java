@@ -1,12 +1,11 @@
-package com.medo.xbuilder.Controller;
+package com.medo.xbuilder.controller;
 
-import com.medo.xbuilder.Dao.Task.TacheDao;
-import com.medo.xbuilder.Model.Project;
-import com.medo.xbuilder.Model.Resource;
-import com.medo.xbuilder.Model.Tache;
-import com.medo.xbuilder.Service.Project.ProjectServiceImp;
-import com.medo.xbuilder.Service.Resources.ResourceServiceImp;
-import com.medo.xbuilder.Service.Tache.TacheServiceImp;
+import com.medo.xbuilder.model.Project;
+import com.medo.xbuilder.model.Resource;
+import com.medo.xbuilder.model.Tache;
+import com.medo.xbuilder.service.project.ProjectServiceImp;
+import com.medo.xbuilder.service.resources.ResourceServiceImp;
+import com.medo.xbuilder.service.tache.TacheServiceImp;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -26,18 +25,22 @@ public class ProjectDetailServlet extends HttpServlet {
 
         TacheServiceImp serviceImp = new TacheServiceImp();
         ResourceServiceImp resourceServiceImp = new ResourceServiceImp();
+        ProjectServiceImp projectServiceImp = new ProjectServiceImp();
         RequestDispatcher  dispatcher = getServletContext().getRequestDispatcher("/views/ProjectDetail.jsp");
         int id = Integer.parseInt(req.getParameter("id"));
         List<Tache> taches =serviceImp.GetAllTasks(id);
         List<Resource> resources=resourceServiceImp.DisplayALLResource();
+        Project project =projectServiceImp.DisplayProjectById(id);
+       String nameProject=project.getName();
         req.setAttribute("project", id);
+        req.setAttribute("projectName",nameProject);
         req.setAttribute("taches", taches);
         req.setAttribute("resources", resources);
         dispatcher.forward(req, resp);
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws  IOException {
         String action = req.getParameter("action");
         switch (action) {
             case "AjouterTask":
@@ -49,13 +52,21 @@ public class ProjectDetailServlet extends HttpServlet {
             case "UpdateTask":
                 UpdateTask(req,resp);
                 break;
+            case "AssociateToResource":
+                AssociateToResource(req,resp);
+                break;
 
         }
 
 
     }
 
-    private void UpdateTask(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    private void AssociateToResource(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+
+
+    }
+
+    private void UpdateTask(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         TacheServiceImp service = new TacheServiceImp();
         int taskId = Integer.parseInt(req.getParameter("TaskId"));
         int projectId = Integer.parseInt(req.getParameter("projectId"));
@@ -67,7 +78,7 @@ public class ProjectDetailServlet extends HttpServlet {
         resp.sendRedirect(req.getContextPath() + "/ProjectDetail?id=" + projectId);
     }
 
-    private void SupprimerTask(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    private void SupprimerTask(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         TacheServiceImp service = new TacheServiceImp();
         int taskId = Integer.parseInt(req.getParameter("id"));
         int projectId = Integer.parseInt(req.getParameter("projectId"));
@@ -75,7 +86,7 @@ public class ProjectDetailServlet extends HttpServlet {
         resp.sendRedirect(req.getContextPath() + "/ProjectDetail?id=" + projectId);
     }
 
-    private void AjouterTask(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    private void AjouterTask(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         TacheServiceImp service = new TacheServiceImp();
         String description = req.getParameter("description");
         Date startDate = Date.valueOf(req.getParameter("startDate"));

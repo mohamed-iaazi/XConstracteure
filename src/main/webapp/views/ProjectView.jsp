@@ -11,6 +11,8 @@
     <title>Project</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 </head>
@@ -33,7 +35,7 @@
                     </li>
 
                 </ul>
-                <button class=" pe-3 logout  btn-secondary btn " href="logout">Logout</button>
+                <button class=" pe-3 logout  btn-secondary btn d-block " href="logout">Logout</button>
             </div>
         </div>
     </nav>
@@ -41,7 +43,7 @@
 
 <main>
     <div class="container">
-        <h3 class="text-center mt-4">Our Project</h3>
+        <h3 class="text-center mt-4 text-light ">Our Project</h3>
 
         <div class="row justify-content-center pt-5 gap-1">
             <c:forEach var="project" items="${projects}">
@@ -213,6 +215,7 @@
 </button>
 <script src="${pageContext.request.contextPath}/js/InputValidation.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 
 </body>
 </html>

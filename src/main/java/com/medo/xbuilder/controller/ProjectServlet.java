@@ -1,6 +1,6 @@
-package com.medo.xbuilder.Controller;
-import com.medo.xbuilder.Model.Project;
-import com.medo.xbuilder.Service.Project.ProjectServiceImp;
+package com.medo.xbuilder.controller;
+import com.medo.xbuilder.model.Project;
+import com.medo.xbuilder.service.project.ProjectServiceImp;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

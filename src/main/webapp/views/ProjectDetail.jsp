@@ -12,6 +12,7 @@
     
     <!-- Custom Styles -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -40,7 +41,7 @@
 
 <!-- Table Section -->
 <div class="container pt-5">
-    <h2 class="text-center mb-4">Project Id : ${project}</h2>
+    <h2 class="text-center mb-4 text-light "> ${projectName}</h2>
 
     <!-- Table for larger screens -->
     <div class="table-responsive">
@@ -174,22 +175,23 @@
                         <div class="row mb-2">
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <textarea name="description" class="form-control" placeholder="Description"></textarea>
+                                    <span class="text-danger ms-1 ps-2 mt-2 "> required *</span>
+                                    <textarea id="desc-input" name="description" class="form-control mt-2" placeholder="Description" required></textarea>
                                 </div>
                             </div>
                         </div>
 
-                        <p class="mt-1 text-secondary mb-1">Start Date</p>
+                        <p class="mt-1 text-secondary mb-1">Start Date  <span class="text-danger ms-1 ps-1">*</span></p>
                         <div class="row mb-2">
                             <div class="col-sm-12">
-                                <input name="startDate" class="form-control" type="date" placeholder="Start Date">
+                                <input id="startdate-input" name="startDate" class="form-control" type="date" placeholder="Start Date" required>
                             </div>
                         </div>
 
-                        <p class="mt-1 text-secondary mb-1">End Date</p>
+                        <p class="mt-1 text-secondary mb-1">End Date  <span class="text-danger ms-1 ps-1">*</span></p>
                         <div class="row mb-2">
                             <div class="col-sm-12">
-                                <input name="endDate" class="form-control" type="date" placeholder="End Date">
+                                <input id="enddate-input" name="endDate" class="form-control" type="date" placeholder="End Date" required>
                             </div>
                         </div>
 
@@ -230,8 +232,11 @@
 
 <!-- Bootstrap Bundle (JS) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/InputValidation.js"></script>
 
-<!-- Bootstrap-Select JS (Updated Version) -->
+
+    <!-- Bootstrap-Select JS (Updated Version) -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/js/bootstrap-select.min.js"></script>
 
 <!-- Initialize Bootstrap-Select (Vanilla JS) -->

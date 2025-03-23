@@ -1,6 +1,6 @@
-package com.medo.xbuilder.Service.Tache;
+package com.medo.xbuilder.service.tache;
 
-import com.medo.xbuilder.Model.Tache;
+import com.medo.xbuilder.model.Tache;
 
 import java.util.List;
 

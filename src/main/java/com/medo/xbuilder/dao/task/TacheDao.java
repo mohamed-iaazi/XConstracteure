@@ -1,16 +1,19 @@
-package com.medo.xbuilder.Dao.Task;
+package com.medo.xbuilder.dao.task;
 
-import com.medo.xbuilder.Model.Project;
-import com.medo.xbuilder.Model.Tache;
-import com.medo.xbuilder.Service.Tache.TacheService;
-import com.medo.xbuilder.Util.DBConnection;
+import com.medo.xbuilder.model.Tache;
+import com.medo.xbuilder.service.tache.TacheService;
+import com.medo.xbuilder.util.DBConnection;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class TacheDao implements TacheService {
     DBConnection DBConnection = new DBConnection();
+    private  static final  Logger log = Logger.getLogger(TacheDao.class.getName());
+
     @Override
     public boolean AddTask(Tache tache) {
         String ADD_NEW_Task = "insert into tache( taskdesc , startdate , enddate  , projectid) values(?,?,?,?)";
@@ -24,8 +27,7 @@ public class TacheDao implements TacheService {
             return true;
 
         } catch (SQLException e) {
-            e.printStackTrace();
-            return  false;
+            log.log(Level.SEVERE,"Error occurred",e );            return  false;
 
         }    }
 
@@ -39,7 +41,7 @@ public class TacheDao implements TacheService {
             preparedStatement.executeUpdate();
             return true;
         } catch (SQLException e) {
-            e.printStackTrace();
+            log.log(Level.SEVERE,"Error occurred",e );
             return false;
 
         }    }
@@ -60,7 +62,7 @@ public class TacheDao implements TacheService {
             return true;
 
         } catch (Exception e) {
-            e.printStackTrace();
+            log.log(Level.SEVERE,"Error occurred",e );
             return false;
 
         }
@@ -90,6 +92,7 @@ public class TacheDao implements TacheService {
                 taches.add(tache);
             }
         } catch (Exception e) {
+            log.log(Level.SEVERE,"Error occurred",e );
             throw new RuntimeException(e);
         }
         return taches;    }

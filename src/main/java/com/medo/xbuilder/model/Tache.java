@@ -1,4 +1,4 @@
-package com.medo.xbuilder.Model;
+package com.medo.xbuilder.model;
 
 import java.sql.Date;
 

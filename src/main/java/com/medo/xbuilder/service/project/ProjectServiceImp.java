@@ -1,7 +1,7 @@
-package com.medo.xbuilder.Service.Project;
+package com.medo.xbuilder.service.project;
 
-import com.medo.xbuilder.Dao.Project.ProjectDao;
-import com.medo.xbuilder.Model.Project;
+import com.medo.xbuilder.dao.project.ProjectDao;
+import com.medo.xbuilder.model.Project;
 
 import java.util.List;
 

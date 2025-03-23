@@ -1,8 +1,7 @@
-package com.medo.xbuilder.Controller;
+package com.medo.xbuilder.controller;
 
-import com.medo.xbuilder.Model.Resource;
-import com.medo.xbuilder.Service.Resources.ResourceService;
-import com.medo.xbuilder.Service.Resources.ResourceServiceImp;
+import com.medo.xbuilder.model.Resource;
+import com.medo.xbuilder.service.resources.ResourceServiceImp;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

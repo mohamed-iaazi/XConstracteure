@@ -1,6 +1,4 @@
-package com.medo.xbuilder.Model;
-
-import java.io.Serializable;
+package com.medo.xbuilder.model;
 
 public class Resource  {
     private  int ResourceId ;

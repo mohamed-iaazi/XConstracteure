@@ -11,7 +11,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom Styles -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
-    
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
@@ -38,7 +40,7 @@
 
 <!-- Table Section -->
 <div class="container pt-5">
-    <h2 class="text-center mb-4">Resources Details</h2>
+    <h2 class="text-center mb-4 text-light">Resources Details</h2>
 
     <!-- Table for larger screens -->
     <div class="table-responsive">
@@ -104,10 +106,11 @@
 
     <!-- Card layout for mobile screens -->
 <c:forEach var="resource" items="${resources}">
-
-<div class="card-mobile">
-        <div class="card border-dark-subtle p-3 mb-3">
-            <div class="card-body">
+    <div class="container" >
+        <!-- Card layout for mobile screens -->
+        <div class="card-mobile  ">
+            <div class="card border-dark-subtle p-3 mb-3 w-100">
+                <div class="card-body">
                 <p class="card-text"><strong>Name:</strong> ${resource.getResourceName()}</p>
                 <p class="card-text"><strong>Detail :</strong>${resource.getResourceDetail()}</p>
                 <p class="card-text"><strong>Type :</strong>${resource.getResourceType()}</p>
@@ -141,6 +144,7 @@
 
             </div>
         </div>
+        </div>
     </div>
 </div>
     </c:forEach>
@@ -160,9 +164,10 @@
 
                     <div class="row mb-2">
                         <div class="col-sm-12">
+                            <span class="text-danger ms-1 ps-2">*</span>
                             <div class="form-group">
                                 <div class="input-group">
-                                    <input name="name" class="form-control" type="text" placeholder="name"></input>
+                                    <input name="name" class="form-control " type="text" placeholder="name" required oninvalid="this.setCustomValidity('This filed is required')"></input>
                                 </div>
                             </div>
                         </div>
@@ -170,9 +175,10 @@
 
                     <div class="row mb-2">
                         <div class="col-sm-12">
+                            <span class="text-danger ms-1 ps-2">*</span>
                             <div class="form-group">
                                 <div class="input-group">
-                                    <textarea name="detail" class="form-control"  placeholder="Resource Detail "></textarea>
+                                    <textarea name="detail" class="form-control"  placeholder="Resource Detail" required oninvalid="this.setCustomValidity('This filed is required')"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -180,9 +186,10 @@
 
                     <div class="row mb-2">
                         <div class="col-sm-12">
+                            <span class="text-danger ms-1 ps-2">*</span>
                             <div class="form-group">
                                 <div class="input-group">
-                                    <input name="type" class="form-control" type="text" placeholder="type"></input>
+                                    <input name="type" class="form-control " type="text" placeholder="type" required oninvalid="this.setCustomValidity('This filed is required')"></input>
                                 </div>
                             </div>
                         </div>
@@ -191,9 +198,10 @@
 
                     <div class="row mb-2">
                         <div class="col-sm-12">
+                            <span class="text-danger ms-1 ps-2">*</span>
                             <div class="form-group">
                                 <div class="input-group">
-                                    <input name="quantité" class="form-control" type="text" placeholder="quantité"></input>
+                                    <input name="quantité" class="form-control " type="number" placeholder="quantité" required oninvalid="this.setCustomValidity('This filed is required')"></input>
                                 </div>
                             </div>
                         </div>
@@ -204,8 +212,8 @@
                     <div class="row mb-2">
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <label> <span class="text-secon">Fournisseur</span>
-                                    <select name="fournisseur" class="selectpicker form-control">
+                                <label> <span class="text-secon">Fournisseur <span class="text-danger ms-1 ps-2">*</span></span>
+                                    <select name="fournisseur" class="selectpicker form-control" required oninvalid="this.setCustomValidity('This filed is required')">
                                             <option disabled selected>Choose One</option>
                                             <option>TSL</option>
                                             <option>PEb</option>
@@ -242,6 +250,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/js/bootstrap-select.min.js"></script>
 
 
+    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 
 
 </body>

@@ -1,16 +1,20 @@
-package com.medo.xbuilder.Dao.Resources;
+package com.medo.xbuilder.dao.resources;
 
-import com.medo.xbuilder.Model.Project;
-import com.medo.xbuilder.Model.Resource;
-import com.medo.xbuilder.Service.Resources.ResourceService;
-import com.medo.xbuilder.Util.DBConnection;
+import com.medo.xbuilder.dao.project.ProjectDao;
+import com.medo.xbuilder.model.Resource;
+import com.medo.xbuilder.service.resources.ResourceService;
+import com.medo.xbuilder.util.DBConnection;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ResourceDao implements ResourceService {
     DBConnection DBConnection = new DBConnection();
+    private  static final Logger log = Logger.getLogger(ResourceDao.class.getName());
+
     @Override
     public boolean AddNewResource(Resource resource) {
         String ADD_NEW_RESOURCE = "insert into resource (name, detail , type , quantité  ,fournisseur ) values(?,?,?,?,?)";
@@ -25,7 +29,7 @@ public class ResourceDao implements ResourceService {
             return true;
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            log.log(Level.SEVERE,"Error occurred",e );
             return  false;
 
         }
@@ -41,7 +45,7 @@ public class ResourceDao implements ResourceService {
             preparedStatement.executeUpdate();
             return true;
         } catch (SQLException e) {
-            e.printStackTrace();
+            log.log(Level.SEVERE,"Error occurred",e );
             return false;
 
         }
@@ -68,6 +72,7 @@ public class ResourceDao implements ResourceService {
 
             }
         } catch (Exception e) {
+            log.log(Level.SEVERE,"Error occurred",e );
             throw new RuntimeException(e);
         }
         return resources;
@@ -96,7 +101,7 @@ public class ResourceDao implements ResourceService {
             return true;
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            log.log(Level.SEVERE,"Error occurred",e );
             return  false;
 
         }

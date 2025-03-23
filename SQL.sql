@@ -34,3 +34,15 @@ create  table Resource(
                           fournisseur varchar(100)
 
 );
+
+
+create table TacheResource (
+                               id int primary key auto_increment ,
+                               quantité int ,
+                               ResourceId int ,
+                               TacheId int ,
+                               foreign key (TacheId) references tache(TacheId),
+                               foreign key (ResourceId) references resource(ResourceId),
+                               foreign key (quantité) references resource(quantité)
+
+)
