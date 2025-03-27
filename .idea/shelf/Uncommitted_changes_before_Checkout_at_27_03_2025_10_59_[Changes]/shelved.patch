@@ -1,0 +1,186 @@
+Index: src/main/webapp/js/InputValidation.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\r\n    document.addEventListener(\"DOMContentLoaded\", function() {\r\n    const form = document.getElementById(\"form\");\r\n    const submitButton = document.getElementById(\"submit\");\r\n\r\n    function validateInput(input, condition) {\r\n    if (condition) {\r\n    input.style.borderColor = \"red\";\r\n    input.style.outlineColor = \"red\";\r\n} else {\r\n    input.style.borderColor = \"\";\r\n    input.style.outlineColor = \"\";\r\n}\r\n}\r\n\r\n    const today = new Date();\r\n    const todayFormatted = today.toISOString().split('T')[0]; // Format: \"YYYY-MM-DD\"\r\n    console.log(todayFormatted);\r\n    const inputs = [\r\n{ element: document.getElementById(\"name-input\"), condition: (value) => value.trim() === \"\" },\r\n{ element: document.getElementById(\"desc-input\"), condition: (value) => value.trim() === \"\" },\r\n{ element: document.getElementById(\"startdate-input\"), condition: (value) => value.trim() === \"\" || value < todayFormatted },\r\n{ element: document.getElementById(\"enddate-input\"), condition: (value) => value.trim() === \"\" || new Date(value) < new Date(document.getElementById(\"startdate-input\").value) },\r\n{ element: document.getElementById(\"budget-input\"), condition: (value) => value === \"\" || value < 1000 }\r\n    ];\r\n\r\n    inputs.forEach(input => {\r\n    input.element.addEventListener(\"input\", function () {\r\n    validateInput(input.element, input.condition(input.element.value));\r\n});\r\n});\r\n\r\n    form.addEventListener(\"submit\", function (event) {\r\n    let valid = true;\r\n\r\n    inputs.forEach(input => {\r\n    if (input.condition(input.element.value)) {\r\n    valid = false;\r\n}\r\n});\r\n\r\n    if (!valid) {\r\n    event.preventDefault();\r\n}\r\n});\r\n});\r\n\r\n
+===================================================================
+diff --git a/src/main/webapp/js/InputValidation.js b/src/main/webapp/js/InputValidation.js
+--- a/src/main/webapp/js/InputValidation.js	(revision fd99863d8095c344e278991847b24d0e41b07cb1)
++++ b/src/main/webapp/js/InputValidation.js	(date 1742898716423)
+@@ -1,47 +1,139 @@
+ 
+     document.addEventListener("DOMContentLoaded", function() {
+-    const form = document.getElementById("form");
+-    const submitButton = document.getElementById("submit");
++
++        const form = document.getElementById("form");
++        const submitButton = document.getElementById("submit");
++        const nameInput= document.getElementById("name-input");
++        const  descInput= document.getElementById("desc-input");
++        const  startDateInput= document.getElementById("startDate-input");
++        const endDateInput= document.getElementById("endDate-input");
++        const  budgetInput= document.getElementById("budget-input");
++        const  submit = document.getElementById("submit");
++
++
++        const  errorName = document.getElementById("errorName");
++        const  errorDesc = document.getElementById("errorDesc");
++        const  errorBudget = document.getElementById("errorBudget");
++        const  errorDateStart = document.getElementById("errorDateStart");
++        const  errorDateEnd = document.getElementById("errorDateEnd");
++
++        nameInput.addEventListener("focusout", function(){
++            if (nameInput.value === ""){
++                errorName.style.display = "block" ;
++                errorName.style.outlineColor = "red";
++                errorName.style.color = "red";
++                errorName.style.borderColor = "red";
++                submit.classList.add("disabled");
++                nameInput.style.outlineColor = "red";
++                nameInput.style.borderColor = "red";
+ 
+-    function validateInput(input, condition) {
+-    if (condition) {
+-    input.style.borderColor = "red";
+-    input.style.outlineColor = "red";
+-} else {
+-    input.style.borderColor = "";
+-    input.style.outlineColor = "";
+-}
+-}
++            }
++            else {
++                errorName.style.display = "none";
++                submit.classList.remove("disabled");
++                nameInput.style.outlineColor = "green";
++                nameInput.style.borderColor = "green";
++
++            }
++        })
+ 
+-    const today = new Date();
+-    const todayFormatted = today.toISOString().split('T')[0]; // Format: "YYYY-MM-DD"
+-    console.log(todayFormatted);
+-    const inputs = [
+-{ element: document.getElementById("name-input"), condition: (value) => value.trim() === "" },
+-{ element: document.getElementById("desc-input"), condition: (value) => value.trim() === "" },
+-{ element: document.getElementById("startdate-input"), condition: (value) => value.trim() === "" || value < todayFormatted },
+-{ element: document.getElementById("enddate-input"), condition: (value) => value.trim() === "" || new Date(value) < new Date(document.getElementById("startdate-input").value) },
+-{ element: document.getElementById("budget-input"), condition: (value) => value === "" || value < 1000 }
+-    ];
++
++        descInput.addEventListener("focusout", function(){
++            if (descInput.value === ""){
++                errorDesc.style.display = "block" ;
++              errorDesc.style.outlineColor = "red";
++              errorDesc.style.color = "red";
++              errorDesc.style.borderColor = "red";
++                submit.classList.add("disabled");
++                descInput.style.outlineColor = "red";
++                descInput.style.borderColor = "red";
++
++
++            }
++            else {
++                errorDesc.style.display = "none";
++                submit.classList.remove("disabled");
++                descInput.style.outlineColor = "green";
++                descInput.style.borderColor = "green";
++
++            }
++        })
++
++
++
++        startDateInput.addEventListener("focusout", function(){
++                 const today = new Date();
++                 const todayFormatted = today.toISOString().split('T')[0];
++
++                 if (startDateInput.value === ""|| startDateInput.value< todayFormatted){
++              errorDateStart.style.display = "block" ;
++              errorDateStart.style.outlineColor = "red";
++              errorDateStart.style.color = "red";
++              errorDateStart.style.borderColor = "red";
++              submit.classList.add("disabled");
++              startDateInput.style.outlineColor = "red";
++              startDateInput.style.borderColor = "red";
++
++
++                 }
++            else {
++                errorDateStart.style.display = "none";
++                submit.classList.remove("disabled");
++                startDateInput.style.outlineColor = "green";
++                startDateInput.style.borderColor = "green";
++
++                 }
++        })
+ 
+-    inputs.forEach(input => {
+-    input.element.addEventListener("input", function () {
+-    validateInput(input.element, input.condition(input.element.value));
+-});
+-});
+ 
+-    form.addEventListener("submit", function (event) {
+-    let valid = true;
++        endDateInput.addEventListener("focusout", function(){
++            const today = new Date();
++            const todayFormatted = today.toISOString().split('T')[0];
+ 
+-    inputs.forEach(input => {
+-    if (input.condition(input.element.value)) {
+-    valid = false;
+-}
+-});
++            if (endDateInput.value === ""|| endDateInput.value< startDateInput.value && endDateInput.value< todayFormatted){
++                errorDateEnd.style.display = "block" ;
++                errorDateEnd.style.outlineColor = "red";
++                errorDateEnd.style.color = "red";
++                errorDateEnd.style.borderColor = "red";
++                submit.classList.add("disabled");
++                endDateInput.style.outlineColor = "red";
++                endDateInput.style.borderColor = "red";
++
++
++            }
++            else {
++                errorDateEnd.style.display = "none";
++                submit.classList.remove("disabled");
++                endDateInput.style.outlineColor = "green";
++                endDateInput.style.borderColor = "green";
+ 
+-    if (!valid) {
+-    event.preventDefault();
+-}
+-});
+-});
++            }
++        })
++
++
++        budgetInput.addEventListener("focusout", function(){
++
++            if (budgetInput.value === ""|| budgetInput.value< 1000){
++                errorBudget.style.display = "block" ;
++                errorBudget.style.outlineColor = "red";
++                errorBudget.style.color = "red";
++                errorBudget.style.borderColor = "red";
++                submit.classList.add("disabled");
++                budgetInput.style.outlineColor = "red";
++                budgetInput.style.borderColor = "red";
++
++
++            }
++            else {
++                errorBudget.style.display = "none";
++                submit.classList.add("disabled");
++                budgetInput.style.outlineColor = "green";
++                budgetInput.style.borderColor = "green";
++
++            }
++        })
++
++
++    })
++
+ 
